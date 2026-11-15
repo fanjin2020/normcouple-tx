@@ -1,0 +1,601 @@
+reference,ensembl,entrez,cell_type,included,reason
+LIBD,ENSG00000235625,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000099869,51214,2,True,
+LIBD,ENSG00000233936,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000236720,101928778,4,True,
+LIBD,ENSG00000286403,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000278254,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000244738,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000286518,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287415,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000242770,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000236678,338864,4,True,
+LIBD,ENSG00000226751,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000169297,190,6,True,
+LIBD,ENSG00000287174,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287406,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000244468,128193290,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000249276,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000286871,124901358,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000253298,285627,5,True,
+LIBD,ENSG00000168418,93107,6,True,
+LIBD,ENSG00000286939,124905237,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287704,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000124253,5105,2,True,
+LIBD,ENSG00000130595,7140,3,True,
+LIBD,ENSG00000232954,106144531,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000277632,6348,5,True,
+LIBD,ENSG00000188770,26254,6,True,
+LIBD,ENSG00000179468,135924,7,True,
+LIBD,ENSG00000287372,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000256151,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000180305,140832,3,True,
+LIBD,ENSG00000036828,846,4,True,
+LIBD,ENSG00000283413,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000101311,55612,6,True,
+LIBD,ENSG00000262585,101928766,7,True,
+LIBD,ENSG00000250263,105377556,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000272789,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000196243,439916,3,True,
+LIBD,ENSG00000248550,100309464,4,True,
+LIBD,ENSG00000231131,105378305,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000187416,375612,6,True,
+LIBD,ENSG00000258214,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000259255,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000274307,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000224076,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000250567,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000140968,3394,5,True,
+LIBD,ENSG00000257612,101927081,6,True,
+LIBD,ENSG00000253924,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000280350,101929608,1,True,
+LIBD,ENSG00000261161,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000230945,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000286972,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000239961,23547,5,True,
+LIBD,ENSG00000260858,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000281186,100652997,7,True,
+LIBD,ENSG00000226083,100129213,1,True,
+LIBD,ENSG00000268388,400550,2,True,
+LIBD,ENSG00000248456,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000288013,105369576,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000235880,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000226869,645591,6,True,
+LIBD,ENSG00000229494,101927948,7,True,
+LIBD,ENSG00000264196,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000152207,57105,2,True,
+LIBD,ENSG00000250446,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000234520,101928036,4,True,
+LIBD,ENSG00000178789,124599,5,True,
+LIBD,ENSG00000278192,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000237941,55539,7,True,
+LIBD,ENSG00000255998,105370060,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000135111,6926,2,True,
+LIBD,ENSG00000261044,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000274976,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000232591,105376388,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000101203,57642,6,True,
+LIBD,ENSG00000259914,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000112164,2740,1,True,
+LIBD,ENSG00000236376,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000269646,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000242072,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000274536,115891964,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000170961,3037,6,True,
+LIBD,ENSG00000205116,643965,7,True,
+LIBD,ENSG00000041982,3371,1,True,
+LIBD,ENSG00000227619,105376292,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000284839,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000258433,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000161911,340205,5,True,
+LIBD,ENSG00000171872,128209,6,True,
+LIBD,ENSG00000241345,105375483,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000267696,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000176678,2300,2,True,
+LIBD,ENSG00000287112,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000107485,2625,4,True,
+LIBD,ENSG00000152766,118932,5,True,
+LIBD,ENSG00000112280,1297,6,True,
+LIBD,ENSG00000126266,2864,7,True,
+LIBD,ENSG00000236240,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000187513,2701,2,True,
+LIBD,ENSG00000287309,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000183379,646658,4,True,
+LIBD,ENSG00000132744,91703,5,True,
+LIBD,ENSG00000156966,93010,6,True,
+LIBD,ENSG00000254314,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000237552,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000183770,668,2,True,
+LIBD,ENSG00000248942,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000187258,387129,4,True,
+LIBD,ENSG00000173391,4973,5,True,
+LIBD,ENSG00000135903,5077,6,True,
+LIBD,ENSG00000158865,115584,7,True,
+LIBD,ENSG00000287939,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000215808,339535,2,True,
+LIBD,ENSG00000228613,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000197587,127343,4,True,
+LIBD,ENSG00000234425,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000286364,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000147488,9705,7,True,
+LIBD,ENSG00000275516,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000253811,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000253428,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000178734,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000104972,10859,5,True,
+LIBD,ENSG00000157890,84465,6,True,
+LIBD,ENSG00000283654,100128908,7,True,
+LIBD,ENSG00000230627,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000198930,158511,2,True,
+LIBD,ENSG00000225107,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000181072,1129,4,True,
+LIBD,ENSG00000187912,388512,5,True,
+LIBD,ENSG00000134853,5156,6,True,
+LIBD,ENSG00000237166,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000251045,340074,1,True,
+LIBD,ENSG00000206262,401089,2,True,
+LIBD,ENSG00000267341,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000259669,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000077420,54518,5,True,
+LIBD,ENSG00000260577,123706523,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287801,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000282952,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287227,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000234767,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000080644,1136,4,True,
+LIBD,ENSG00000073737,10170,5,True,
+LIBD,ENSG00000251410,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000286279,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000244383,105377108,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000126778,6495,2,True,
+LIBD,ENSG00000253959,107986480,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000258776,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000142623,29943,5,True,
+LIBD,ENSG00000127325,144453,6,True,
+LIBD,ENSG00000284377,105373347,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000248397,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000102755,2321,2,True,
+LIBD,ENSG00000286439,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000071909,140469,4,True,
+LIBD,ENSG00000226159,101926924,5,True,
+LIBD,ENSG00000257185,102724890,6,True,
+LIBD,ENSG00000253877,101927459,7,True,
+LIBD,ENSG00000258909,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000206190,57194,2,True,
+LIBD,ENSG00000258843,105370489,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000189056,5649,4,True,
+LIBD,ENSG00000183822,107985578,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000248184,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000188379,3440,7,True,
+LIBD,ENSG00000231768,100506795,1,True,
+LIBD,ENSG00000249669,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000229925,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000259611,101927332,4,True,
+LIBD,ENSG00000161640,114132,5,True,
+LIBD,ENSG00000186185,146909,6,True,
+LIBD,ENSG00000227088,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000236827,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000218357,101927722,2,True,
+LIBD,ENSG00000279301,127077,3,True,
+LIBD,ENSG00000138653,64579,4,True,
+LIBD,ENSG00000090104,5996,5,True,
+LIBD,ENSG00000169302,202374,6,True,
+LIBD,ENSG00000262188,101928738,7,True,
+LIBD,ENSG00000276759,100506422,1,True,
+LIBD,ENSG00000164379,94234,2,True,
+LIBD,ENSG00000247867,283214,3,True,
+LIBD,ENSG00000251033,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287684,105372984,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000254919,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000240687,105373418,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000256732,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000142910,64129,2,True,
+LIBD,ENSG00000236403,105376314,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000153820,80309,4,True,
+LIBD,ENSG00000140678,3687,5,True,
+LIBD,ENSG00000196132,4661,6,True,
+LIBD,ENSG00000286749,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000174776,151790,1,True,
+LIBD,ENSG00000177464,2828,2,True,
+LIBD,ENSG00000187701,403239,3,True,
+LIBD,ENSG00000215881,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000256706,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000205809,3822,6,True,
+LIBD,ENSG00000233410,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000230316,154860,1,True,
+LIBD,ENSG00000245008,101929538,2,True,
+LIBD,ENSG00000274993,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000273786,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000119535,1441,5,True,
+LIBD,ENSG00000264015,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000204278,283999,7,True,
+LIBD,ENSG00000234303,101927465,1,True,
+LIBD,ENSG00000203883,54345,2,True,
+LIBD,ENSG00000251058,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287301,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000261218,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000183542,8302,6,True,
+LIBD,ENSG00000012124,933,7,True,
+LIBD,ENSG00000269796,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287652,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000259831,283486,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000286218,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000105366,27181,5,True,
+LIBD,ENSG00000250343,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000086205,2346,7,True,
+LIBD,ENSG00000260785,101928165,1,True,
+LIBD,ENSG00000273428,105372990,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000286610,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000157404,3815,4,True,
+LIBD,ENSG00000273409,101929497,5,True,
+LIBD,ENSG00000075461,27092,6,True,
+LIBD,ENSG00000260042,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000141469,6563,1,True,
+LIBD,ENSG00000254126,927,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000186513,219957,3,True,
+LIBD,ENSG00000286335,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000168329,1524,5,True,
+LIBD,ENSG00000204099,129807,6,True,
+LIBD,ENSG00000251170,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287380,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000112214,9457,2,True,
+LIBD,ENSG00000251446,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000231764,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000168995,27036,5,True,
+LIBD,ENSG00000225329,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000233359,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000231826,102723854,1,True,
+LIBD,ENSG00000088320,28954,2,True,
+LIBD,ENSG00000255227,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000226990,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000186818,11006,5,True,
+LIBD,ENSG00000224272,124905349,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000159763,5304,7,True,
+LIBD,ENSG00000261078,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000287566,105376380,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000267722,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000150556,130576,4,True,
+LIBD,ENSG00000198223,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000259203,101928499,6,True,
+LIBD,ENSG00000227392,100128675,7,True,
+LIBD,ENSG00000258548,100505967,1,True,
+LIBD,ENSG00000101276,113278,2,True,
+LIBD,ENSG00000228353,,3,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000188386,5535,4,True,
+LIBD,ENSG00000155659,11326,5,True,
+LIBD,ENSG00000038427,1462,6,True,
+LIBD,ENSG00000016602,22802,7,True,
+LIBD,ENSG00000230260,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000128917,54567,2,True,
+LIBD,ENSG00000184022,127069,3,True,
+LIBD,ENSG00000151136,121551,4,True,
+LIBD,ENSG00000172243,64581,5,True,
+LIBD,ENSG00000258081,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000254081,286186,7,True,
+LIBD,ENSG00000251372,100874047,1,True,
+LIBD,ENSG00000227764,105748977,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000186442,3850,3,True,
+LIBD,ENSG00000286900,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000253988,,5,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000231424,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000286992,,7,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000243486,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000273100,,2,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000197651,196477,3,True,
+LIBD,ENSG00000136750,2572,4,True,
+LIBD,ENSG00000129450,27180,5,True,
+LIBD,ENSG00000234173,105378311,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000132911,56923,7,True,
+LIBD,ENSG00000286710,116435278,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000103241,2294,2,True,
+LIBD,ENSG00000224788,101928298,3,True,
+LIBD,ENSG00000236858,,4,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000006747,85477,5,True,
+LIBD,ENSG00000264693,,6,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000165131,135927,7,True,
+LIBD,ENSG00000287828,,1,False,no unique current Entrez mapping or missing deposited gene
+LIBD,ENSG00000123243,80760,2,True,
+LIBD,ENSG00000249584,101928539,3,True,
+LIBD,ENSG00000144596,80852,4,True,
+LIBD,ENSG00000036565,6570,5,True,
+LIBD,ENSG00000235628,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000288060,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000251493,2297,2,True,
+SEAAD,ENSG00000249994,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000229771,101927098,4,True,
+SEAAD,ENSG00000270164,101927931,5,True,
+SEAAD,ENSG00000251264,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000128645,3231,7,True,
+SEAAD,ENSG00000286798,102725080,1,True,
+SEAAD,ENSG00000135111,6926,2,True,
+SEAAD,ENSG00000256321,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000233052,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000175857,202309,5,True,
+SEAAD,ENSG00000251410,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287174,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000286663,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000115602,9173,2,True,
+SEAAD,ENSG00000284694,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000178690,284254,4,True,
+SEAAD,ENSG00000104972,10859,5,True,
+SEAAD,ENSG00000170961,3037,6,True,
+SEAAD,ENSG00000253551,101929341,7,True,
+SEAAD,ENSG00000272727,105377466,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000183888,149563,2,True,
+SEAAD,ENSG00000261666,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000226520,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000255980,102724265,5,True,
+SEAAD,ENSG00000144230,2840,6,True,
+SEAAD,ENSG00000258214,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000271776,780529,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000054598,2296,2,True,
+SEAAD,ENSG00000276454,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000187012,388910,4,True,
+SEAAD,ENSG00000072694,2213,5,True,
+SEAAD,ENSG00000215117,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000204278,283999,7,True,
+SEAAD,ENSG00000287380,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000168497,8436,2,True,
+SEAAD,ENSG00000253538,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000286871,124901358,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000254415,100049587,5,True,
+SEAAD,ENSG00000127325,144453,6,True,
+SEAAD,ENSG00000244738,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000259439,107985879,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000137507,2615,2,True,
+SEAAD,ENSG00000251621,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287554,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000152766,118932,5,True,
+SEAAD,ENSG00000278254,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000254314,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000226083,100129213,1,True,
+SEAAD,ENSG00000120279,80177,2,True,
+SEAAD,ENSG00000260015,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000285698,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000168995,27036,5,True,
+SEAAD,ENSG00000169297,190,6,True,
+SEAAD,ENSG00000261121,107986266,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287828,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000164692,1278,2,True,
+SEAAD,ENSG00000224595,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000288013,105369576,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000110077,64231,5,True,
+SEAAD,ENSG00000226869,645591,6,True,
+SEAAD,ENSG00000261710,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000273209,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000184113,7122,2,True,
+SEAAD,ENSG00000287504,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287301,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000285972,642934,5,True,
+SEAAD,ENSG00000278192,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000241345,105375483,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000175591,5029,1,True,
+SEAAD,ENSG00000267107,100505495,2,True,
+SEAAD,ENSG00000255227,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000272428,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000166928,84689,5,True,
+SEAAD,ENSG00000227455,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000286048,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000211896,3500,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000187513,2701,2,True,
+SEAAD,ENSG00000232056,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000255191,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000155659,11326,5,True,
+SEAAD,ENSG00000264015,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000197430,93377,7,True,
+SEAAD,ENSG00000152192,5457,1,True,
+SEAAD,ENSG00000287652,,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287046,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000146166,51557,4,True,
+SEAAD,ENSG00000157303,203328,5,True,
+SEAAD,ENSG00000156966,93010,6,True,
+SEAAD,ENSG00000253877,101927459,7,True,
+SEAAD,ENSG00000287704,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000092607,6913,2,True,
+SEAAD,ENSG00000235337,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000231453,285084,4,True,
+SEAAD,ENSG00000282608,140,5,True,
+SEAAD,ENSG00000248184,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000237166,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000186204,66002,1,True,
+SEAAD,ENSG00000227764,105748977,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000249708,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000108702,6346,4,True,
+SEAAD,ENSG00000101916,51311,5,True,
+SEAAD,ENSG00000234173,105378311,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000281186,100652997,7,True,
+SEAAD,ENSG00000250668,101929261,1,True,
+SEAAD,ENSG00000138795,51176,2,True,
+SEAAD,ENSG00000262296,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000229607,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000173762,924,5,True,
+SEAAD,ENSG00000265717,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000148826,84504,7,True,
+SEAAD,ENSG00000259255,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000112214,9457,2,True,
+SEAAD,ENSG00000228772,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000285575,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000239961,23547,5,True,
+SEAAD,ENSG00000259203,101928499,6,True,
+SEAAD,ENSG00000147488,9705,7,True,
+SEAAD,ENSG00000234377,100874222,1,True,
+SEAAD,ENSG00000261161,,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000286709,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000234296,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000114013,942,5,True,
+SEAAD,ENSG00000112280,1297,6,True,
+SEAAD,ENSG00000286541,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000285691,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000085276,2122,2,True,
+SEAAD,ENSG00000260564,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000236651,104326193,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000161911,340205,5,True,
+SEAAD,ENSG00000075429,27091,6,True,
+SEAAD,ENSG00000253924,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000164089,64850,1,True,
+SEAAD,ENSG00000187800,375033,2,True,
+SEAAD,ENSG00000258426,105370600,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000164651,221833,4,True,
+SEAAD,ENSG00000275713,8345,5,True,
+SEAAD,ENSG00000166573,2587,6,True,
+SEAAD,ENSG00000250072,255187,7,True,
+SEAAD,ENSG00000260785,101928165,1,True,
+SEAAD,ENSG00000243620,,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000258576,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000274792,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000198829,56670,5,True,
+SEAAD,ENSG00000249835,105379054,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000086205,2346,7,True,
+SEAAD,ENSG00000234928,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000112936,730,2,True,
+SEAAD,ENSG00000287930,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000273906,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000231131,105378305,5,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287389,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000264843,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000171517,23566,1,True,
+SEAAD,ENSG00000177464,2828,2,True,
+SEAAD,ENSG00000258460,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000253583,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000180644,5551,5,True,
+SEAAD,ENSG00000101203,57642,6,True,
+SEAAD,ENSG00000259120,100130933,7,True,
+SEAAD,ENSG00000121742,10804,1,True,
+SEAAD,ENSG00000179348,2624,2,True,
+SEAAD,ENSG00000258736,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000259977,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000274536,115891964,5,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000241636,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000286992,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000148482,221074,1,True,
+SEAAD,ENSG00000163762,116441,2,True,
+SEAAD,ENSG00000234306,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000273447,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000160791,1234,5,True,
+SEAAD,ENSG00000228459,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000233410,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000115507,5013,1,True,
+SEAAD,ENSG00000218357,101927722,2,True,
+SEAAD,ENSG00000261642,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000174948,344758,4,True,
+SEAAD,ENSG00000163823,1230,5,True,
+SEAAD,ENSG00000225329,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000229494,101927948,7,True,
+SEAAD,ENSG00000205358,4496,1,True,
+SEAAD,ENSG00000123243,80760,2,True,
+SEAAD,ENSG00000287802,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000171551,9427,4,True,
+SEAAD,ENSG00000259871,,5,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000188770,26254,6,True,
+SEAAD,ENSG00000287806,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000259223,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000132031,4148,2,True,
+SEAAD,ENSG00000126895,554,3,True,
+SEAAD,ENSG00000176349,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000140678,3687,5,True,
+SEAAD,ENSG00000286479,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000262188,101928738,7,True,
+SEAAD,ENSG00000238242,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000127920,2791,2,True,
+SEAAD,ENSG00000102239,680,3,True,
+SEAAD,ENSG00000236678,338864,4,True,
+SEAAD,ENSG00000230138,,5,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000101311,55612,6,True,
+SEAAD,ENSG00000153002,1360,7,True,
+SEAAD,ENSG00000285838,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287470,105372802,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000197651,196477,3,True,
+SEAAD,ENSG00000120903,1135,4,True,
+SEAAD,ENSG00000203747,2214,5,True,
+SEAAD,ENSG00000204099,129807,6,True,
+SEAAD,ENSG00000016602,22802,7,True,
+SEAAD,ENSG00000286573,,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000274307,,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000198445,150160,3,True,
+SEAAD,ENSG00000275088,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287684,105372984,5,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000257612,101927081,6,True,
+SEAAD,ENSG00000286279,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000141469,6563,1,True,
+SEAAD,ENSG00000000971,3075,2,True,
+SEAAD,ENSG00000196748,389383,3,True,
+SEAAD,ENSG00000234646,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000166927,58475,5,True,
+SEAAD,ENSG00000168418,93107,6,True,
+SEAAD,ENSG00000168314,4336,7,True,
+SEAAD,ENSG00000140067,90050,1,True,
+SEAAD,ENSG00000042304,,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000225899,441581,3,True,
+SEAAD,ENSG00000163518,83417,4,True,
+SEAAD,ENSG00000115008,3552,5,True,
+SEAAD,ENSG00000157890,84465,6,True,
+SEAAD,ENSG00000264340,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000244731,720,1,True,
+SEAAD,ENSG00000196616,125,2,True,
+SEAAD,ENSG00000189139,84075,3,True,
+SEAAD,ENSG00000147041,94122,4,True,
+SEAAD,ENSG00000228058,101927532,5,True,
+SEAAD,ENSG00000224184,100506457,6,True,
+SEAAD,ENSG00000081479,4036,7,True,
+SEAAD,ENSG00000177133,440556,1,True,
+SEAAD,ENSG00000183134,11251,2,True,
+SEAAD,ENSG00000112273,154150,3,True,
+SEAAD,ENSG00000228835,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000198353,3221,5,True,
+SEAAD,ENSG00000260990,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000260042,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287544,105377557,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000003436,7035,2,True,
+SEAAD,ENSG00000224758,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000163273,4880,4,True,
+SEAAD,ENSG00000197249,5265,5,True,
+SEAAD,ENSG00000230223,6315,6,True,
+SEAAD,ENSG00000105695,4099,7,True,
+SEAAD,ENSG00000095917,23430,1,True,
+SEAAD,ENSG00000159167,6781,2,True,
+SEAAD,ENSG00000250446,,3,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000286867,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000285165,,5,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000253171,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000287801,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000286377,124900945,1,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000198959,7052,2,True,
+SEAAD,ENSG00000259837,388456,3,True,
+SEAAD,ENSG00000231764,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000116824,914,5,True,
+SEAAD,ENSG00000224272,124905349,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000012124,933,7,True,
+SEAAD,ENSG00000280350,101929608,1,True,
+SEAAD,ENSG00000215808,339535,2,True,
+SEAAD,ENSG00000234602,345643,3,True,
+SEAAD,ENSG00000285592,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000237541,3118,5,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000196132,4661,6,True,
+SEAAD,ENSG00000251170,,7,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000187634,148398,1,True,
+SEAAD,ENSG00000268388,400550,2,True,
+SEAAD,ENSG00000184022,127069,3,True,
+SEAAD,ENSG00000254605,,4,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000185811,10320,5,True,
+SEAAD,ENSG00000270114,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000179178,128218,7,True,
+SEAAD,ENSG00000171885,361,1,True,
+SEAAD,ENSG00000251632,105377443,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000182783,343563,3,True,
+SEAAD,ENSG00000135824,85397,4,True,
+SEAAD,ENSG00000184293,,5,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000236921,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000126266,2864,7,True,
+SEAAD,ENSG00000130055,54857,1,True,
+SEAAD,ENSG00000101276,113278,2,True,
+SEAAD,ENSG00000255298,219865,3,True,
+SEAAD,ENSG00000248844,101928443,4,True,
+SEAAD,ENSG00000105122,64926,5,True,
+SEAAD,ENSG00000231424,,6,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000224189,401022,7,True,
+SEAAD,ENSG00000163734,2921,1,True,
+SEAAD,ENSG00000287338,,2,False,no unique current Entrez mapping or missing deposited gene
+SEAAD,ENSG00000253548,152138,3,True,
+SEAAD,ENSG00000119973,2834,4,True,
+SEAAD,ENSG00000140030,8477,5,True,
+SEAAD,ENSG00000229876,101929244,6,True,

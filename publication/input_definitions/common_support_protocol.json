@@ -1,0 +1,1475 @@
+{
+  "R": {
+    "R": "R version 4.5.3 (2026-03-11)",
+    "dtangle": "2.0.9",
+    "edgeR": "4.8.2",
+    "jsonlite": "2.0.0"
+  },
+  "input_hashes": {
+    "LIBD/cells.csv": "4e6040ced760297c6023018f7f1ce45bca734669ffcad600cd8e095dc6166e6b",
+    "LIBD/counts.mtx": "0c8462764fc8c3df658b2f97af207e47c7b135562f1415b30b5bbd822a1c23e2",
+    "LIBD/genes.csv": "3ccc49137c549ecb2614d9ae9c7cf7f31a9081dc77df9c6af7930706d38ef4a4",
+    "SEAAD/cells.csv": "3072c166aa5462ff798cad5c86a58be9503b40f196ebf2c47df16a21729e53ae",
+    "SEAAD/counts.mtx": "15cde25b95a5e5562cd68694064534acc0d5e400d081c4f571299097655d689e",
+    "SEAAD/genes.csv": "9b40fa4e7d321b7201bc10a0d7be4faa40e24f01871a5a9200e7fda16c96ffae",
+    "external/GSE174367_snRNA-seq_cell_meta.csv.gz": "ab1a029deb43196e2bb1fea5907d838885750cfff3850c600c07588c7c7cdb2b",
+    "external/GSE174367_snRNA-seq_filtered_feature_bc_matrix.h5": "6ba98a1af8772af08c8cdd5e5e63eebb0890daed48cac2e1b8961dcc67069b77",
+    "gene_map": "272f6ca87545ad1cf7f91203f3a700a6b6ef55154278c4a0da590cc41103fb17"
+  },
+  "package": "paper3_bounded_followup",
+  "parent_identity": {
+    "clinical_receipt": "902bd96926d8b54048d9f4763a6c3ca9b21e8f849a3f540806936dfa1f6c232e",
+    "final_manifest": "b5eb4eadfd902757ce2f563d3f53505862c96eb9aadaad88121e71eea846bd4e",
+    "protocol": "bdd118b1375add8e9fe5ed708b46587834a2312f689de1e2704e7dbc0701b211"
+  },
+  "python": {
+    "h5py": "3.13.0",
+    "matplotlib": "3.10.1",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.15.3"
+  },
+  "selection_sha256": "33d5518444e7ff442102f9a7c4d9fd2a196fe7b363090ec139c0b94b3755af07",
+  "settings": {
+    "allocation": "fixed_reference_common_positive_sample_class_support_equal_reduced_budget",
+    "base_subsets": [
+      "zero",
+      "legacy",
+      "random_001",
+      "random_002",
+      "random_003",
+      "matched_001",
+      "matched_002",
+      "matched_003"
+    ],
+    "clinical_derivative_steps": [
+      0.01,
+      0.001,
+      0.0001,
+      1e-05
+    ],
+    "clinical_probe_steps": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "diagnostic_numeric_floor": 1e-06,
+    "external_seed": 2026101119,
+    "methods": [
+      "oracle",
+      "tmm",
+      "tmm_exclude_factor",
+      "tmm_exclude_both",
+      "marker_denominator_only",
+      "marker_matched",
+      "nnls_linear",
+      "nnls_marker_matched"
+    ],
+    "nuclei": 200,
+    "outcomes": [
+      "null",
+      "up025"
+    ],
+    "paired_seed": 2026101103,
+    "random_subsets": 3,
+    "regression_rule": "full_six",
+    "rep_start": 10000,
+    "repetitions": 50,
+    "scope": "Common-positive-support equal-reduced-budget follow-up",
+    "software_fixture": false,
+    "subset_ids": [
+      "zero",
+      "legacy__allow_zero",
+      "legacy__positive_only",
+      "random_001__allow_zero",
+      "random_001__positive_only",
+      "random_002__allow_zero",
+      "random_002__positive_only",
+      "random_003__allow_zero",
+      "random_003__positive_only",
+      "matched_001__allow_zero",
+      "matched_001__positive_only",
+      "matched_002__allow_zero",
+      "matched_002__positive_only",
+      "matched_003__allow_zero",
+      "matched_003__positive_only"
+    ],
+    "support_rules": [
+      "allow_zero",
+      "positive_only"
+    ]
+  },
+  "signature": "39a63ffbf6af5d2aadcac29f42c30b34be26274dfd41ef324b405e55b0fde2c1",
+  "source_signature": "0d22c5e052a1956db4ac4c3ae1d849f064de17db863523df823b8a59180621a6",
+  "units": [
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 0,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Br6432",
+      "target_source": "LIBD",
+      "unit_id": "revision_e5ffb1a323e11ea6"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 0,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Br6471",
+      "target_source": "LIBD",
+      "unit_id": "revision_8c02536c2c4b314f"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 0,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Br6522",
+      "target_source": "LIBD",
+      "unit_id": "revision_38794f91281cb1d8"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 0,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Br8325",
+      "target_source": "LIBD",
+      "unit_id": "revision_2c7b8a12699bcc84"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 0,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Br8492",
+      "target_source": "LIBD",
+      "unit_id": "revision_34cb6c03d345bc4c"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 0,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Br8667",
+      "target_source": "LIBD",
+      "unit_id": "revision_78402761803f7802"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 1,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "H20.33.005",
+      "target_source": "SEAAD",
+      "unit_id": "revision_d93c094a58169854"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 1,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "H20.33.008",
+      "target_source": "SEAAD",
+      "unit_id": "revision_37d987e23bfd2e74"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 1,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "H20.33.011",
+      "target_source": "SEAAD",
+      "unit_id": "revision_6fc155e700cf798c"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 1,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "H20.33.012",
+      "target_source": "SEAAD",
+      "unit_id": "revision_65604c3ed29b9e54"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 1,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "H20.33.013",
+      "target_source": "SEAAD",
+      "unit_id": "revision_58b61fee6fa27fd2"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.1,
+          "name": "up01",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.25,
+          "name": "up025",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "balanced05",
+          "panel": "frozen",
+          "pattern": "balanced"
+        },
+        {
+          "effect": 0.5,
+          "name": "low05",
+          "panel": "low",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "high05",
+          "panel": "high",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 1,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "H20.33.014",
+      "target_source": "SEAAD",
+      "unit_id": "revision_4916870d012c001b"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-100",
+      "target_source": "GSE174367",
+      "unit_id": "revision_f73765e08a06d4f0"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-19",
+      "target_source": "GSE174367",
+      "unit_id": "revision_cc871679bcae2422"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-22",
+      "target_source": "GSE174367",
+      "unit_id": "revision_27b4e8d261d9f986"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-27",
+      "target_source": "GSE174367",
+      "unit_id": "revision_47bedc9dd06c8f2a"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-33",
+      "target_source": "GSE174367",
+      "unit_id": "revision_e514ac0c7a10c266"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-37",
+      "target_source": "GSE174367",
+      "unit_id": "revision_57bac4e97c315aa9"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-43",
+      "target_source": "GSE174367",
+      "unit_id": "revision_f1f611dc260bdb14"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-46",
+      "target_source": "GSE174367",
+      "unit_id": "revision_cb39db09421a340b"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-47",
+      "target_source": "GSE174367",
+      "unit_id": "revision_7ee8e488b2c617ad"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-50",
+      "target_source": "GSE174367",
+      "unit_id": "revision_3fcfa914e885fa98"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-58",
+      "target_source": "GSE174367",
+      "unit_id": "revision_38d28f40873d0553"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-66",
+      "target_source": "GSE174367",
+      "unit_id": "revision_a922d0e75febfb85"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-82",
+      "target_source": "GSE174367",
+      "unit_id": "revision_9f706bd4042f5bdb"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-90",
+      "target_source": "GSE174367",
+      "unit_id": "revision_55f103f65477659b"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 2,
+      "n": 80,
+      "reference_source": "LIBD",
+      "split": 0,
+      "target_donor": "Sample-96",
+      "target_source": "GSE174367",
+      "unit_id": "revision_0a17fa6381c41e50"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-100",
+      "target_source": "GSE174367",
+      "unit_id": "revision_85b4d51a1c3c8b07"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-19",
+      "target_source": "GSE174367",
+      "unit_id": "revision_f37bd2945d988aa1"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-22",
+      "target_source": "GSE174367",
+      "unit_id": "revision_5869b85c3bbbf4c0"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-27",
+      "target_source": "GSE174367",
+      "unit_id": "revision_06a7ac7600300890"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-33",
+      "target_source": "GSE174367",
+      "unit_id": "revision_fcc4528df3babb82"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-37",
+      "target_source": "GSE174367",
+      "unit_id": "revision_d8cc0beda97f1d44"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-43",
+      "target_source": "GSE174367",
+      "unit_id": "revision_5145cf16ee924a09"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-46",
+      "target_source": "GSE174367",
+      "unit_id": "revision_abd6ba1f66f6e251"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-47",
+      "target_source": "GSE174367",
+      "unit_id": "revision_ce7b023e6bc14d2a"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-50",
+      "target_source": "GSE174367",
+      "unit_id": "revision_8227462a043e3727"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-58",
+      "target_source": "GSE174367",
+      "unit_id": "revision_af415e49ba6a9b22"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-66",
+      "target_source": "GSE174367",
+      "unit_id": "revision_c91258fc002cc21e"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-82",
+      "target_source": "GSE174367",
+      "unit_id": "revision_a43fe9897577b69d"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-90",
+      "target_source": "GSE174367",
+      "unit_id": "revision_02cb6c68a7ab5d91"
+    },
+    {
+      "composition_shift": 1.0,
+      "conditions": [
+        {
+          "effect": 0.0,
+          "name": "null",
+          "panel": "frozen",
+          "pattern": "up"
+        },
+        {
+          "effect": 0.5,
+          "name": "up05",
+          "panel": "frozen",
+          "pattern": "up"
+        }
+      ],
+      "job_index": 3,
+      "n": 80,
+      "reference_source": "SEAAD",
+      "split": 0,
+      "target_donor": "Sample-96",
+      "target_source": "GSE174367",
+      "unit_id": "revision_20a718401b8a793f"
+    }
+  ],
+  "version": "1.0.0"
+}
