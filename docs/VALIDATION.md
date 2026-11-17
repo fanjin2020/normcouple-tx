@@ -1,16 +1,23 @@
 # Validation scope
 
-Local validation was performed on Windows on November 15, 2026, using Python 3.12 and the pinned NumPy 2.2.6, pandas 2.2.3, SciPy 1.15.3, h5py 3.13.0 and Matplotlib 3.10.1 environment.
+Version 2.1.0 was checked on November 17, 2026. Scientific calculations ran on Linux with the pinned Python environment and R packages. Document and workbook checks ran on Windows.
 
-## Checks performed
+## Scientific checks
 
-- **48 framework/publication tests** passed: MRN transformations, actual-span HC3, gene families, headline numerical checks, source-layout hashes, dependency ordering, missing-stage rejection, fixture rejection, changed-file resume checks, safe paths, input-cache reuse, interrupted imports and downloads, checksum failures, and writer-lock status.
-- **17 common-support kernel tests** passed in the materialized runtime layout. These exercise retained budgets, zero-count support, batch resume, multistep clinical probes, derivative qualification and output integrity using small software fixtures.
-- All seven scientific entry points accepted their configured option names in help/CLI compatibility checks.
-- The new aggregation code was run on existing server-result summaries. All fifteen supplementary tables and all eleven additional datasets matched the archived publication sources, using exact labels and numerical tolerances of relative 1e-10 and absolute 1e-12. This validates the calculation-to-publication transformations without rerunning the underlying fits.
-- All nine main and seven supplementary figures were rendered from that newly aggregated data, with text-bound checks. Their source map names physical CSV files and explicit views; table/figure copies are not duplicated.
-- The unified archived-data export produced 26 numerical files and 16 figures. Its optional workbook had 15 data sheets plus Contents; 37,842 data cells matched the shared CSV sources.
-- Scientific kernels retain their original bytes and internal manifest identities after materialization. Identical physical source files are stored once in the upload package.
+- The cross-estimator experiment completed all 210 batches: 1,680 datasets, 15,120 method-probe records and 10,080 paired contrasts. It uses 42 reference-target units and 20 repetitions per unit and effect. Its receipt records input, source and environment identities.
+- Cached MuSiC reference calculations were compared with 192 uncached official API calls. The maximum prediction difference was zero. MuSiC 1.0.0 is pinned to commit `f21fe67f5670d5e9fca0ad7550abaae3423eb59c`.
+- Independent aggregation reproduced all cross-estimator means and conditional Monte Carlo standard errors within 2e-15. The coefficient-weight identity had maximum absolute error 1.34e-15. All planned regressions were estimable.
+- A final-launcher pilot reproduced 144 method-probe records and 96 contrast records exactly. A subsequent resume reused all four verified batches without recomputation.
+- The user-data sensitivity command reproduced 161,610 gene-model results for 288 clinical samples and 16,161 genes. Availability and BH decisions agreed exactly. Maximum absolute differences were 8.52e-14 for coefficients, 1.71e-15 for standard errors, 1.63e-12 for p values and 1.90e-12 for q values.
+- `rebuild-inputs` reconstructed both sparse count matrices, four cell/feature annotation files and the gene-identity map from cached author-distributed public source objects. All seven output SHA256 hashes matched the prepared-input definitions exactly. This was a reconstruction test, not a repeated download of all eleven source objects.
+
+## Framework and publication checks
+
+- All **65 framework/publication tests** passed on Linux. Coverage includes transformations, actual-span HC3, fraction closure, sample and family alignment, cross-estimator contracts, dependency ordering, input reconstruction, path safety, receipt verification and interrupted-run recovery.
+- The preceding release's 17 common-support kernel tests also passed in its materialized runtime. Those frozen kernel files remain unchanged.
+- Aggregation from existing scientific outputs and the new cross-estimator output reproduced all 27 publication datasets: 16 supplementary tables and 11 additional figure datasets. Old table values were retained; Table S10 gained two geometry fields and Table S16 contains the new experiment.
+- Published-result export generated all nine main and eight supplementary figures. Every figure has an explicit source-data mapping, with no duplicated table/plot data copies.
+- The submission workbook was checked against the shared CSV sources across 39,499 header/data cells. Its original 38,839 occupied cells were preserved apart from four intended author/catalog metadata updates. The workbook has Guide and Tables S1-S16.
 
 Run the public test suite with:
 
@@ -20,10 +27,10 @@ python reproduce.py verify
 python reproduce.py export --published --output ../paper3_publication_check
 ```
 
-The complete source/output receipt chain is also checked by `verify --work RUN` and by `export --work RUN`. These commands reject missing stages, unsealed outputs, changed files and a different framework identity. A success status alone is not sufficient.
+`verify --work RUN` and `export --work RUN` validate the source/output receipt chain and reject missing stages, unsealed outputs, changed files and a different framework identity. See `docs/ANALYSES.md` for scientific execution and `docs/INPUTS.md` for raw-source reconstruction or reuse of existing caches.
 
-## Scope of evidence
+## Interpretation and execution scope
 
-No complete Linux/R-based refit or 36-worker performance run was performed on this local Windows computer. Software fixtures and reconstruction from existing server summaries are not new biological analyses. Full end-to-end verification requires the exact prepared banks, the specified R environment and execution of the seven-stage run on the server.
+The new experiment supports a boundary between tested-gene denominator feedback and marker-count sensitivity. It does not establish universal FDR control for MuSiC or marker-restricted normalization. Its four observed reference donors are fixed; Monte Carlo standard errors describe repeated mixtures conditional on those references and target banks.
 
-The exact LIBD/SEA-AD prepared matrices and gene map remain an input-access requirement for new users. Cache import, checksum-pinned URL manifests and offline input packaging are implemented; this release does not claim that missing objects have already been publicly deposited.
+The original seven large scientific analyses were not refitted during this validation. Their outputs were reaggregated and checked, while the new cross-estimator analysis, input reconstruction and clinical sensitivity workflow were executed on the server. A single fresh invocation of the entire eight-stage framework from newly downloaded raw data was not performed. The code does not claim that an additional public archive of the prepared count banks exists; their verified reconstruction recipe and pinned public source manifest are provided instead.

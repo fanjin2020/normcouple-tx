@@ -28,7 +28,15 @@ paper3_inputs/
 | GSE174367 | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE174367 | Deposited metadata and filtered H5 matrix |
 | GSE125583 | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE125583 | Deposited raw-count tar and SOFT metadata |
 
-The exact LIBD/SEA-AD matrices and identity map have no assigned download URLs in this release. Their landing pages are not substitutes. A verified cache closes the input requirement for its owner; public reproducibility additionally requires deposition of these exact objects with appropriate permissions, or a tested preparation recipe that reproduces their identities.
+`rebuild-inputs` reconstructs the exact LIBD/SEA-AD matrices and identity map from the files in `publication/input_definitions/raw_reference_sources.json`. All seven reconstructed files were checked against the manuscript's SHA256 identities. The recipe uses the LIBD author's HDF5-backed SingleCellExperiment, author broad labels and donor field, preserves distinct Ensembl rows, and namespaces duplicate barcodes by donor. SEA-AD uses the ten fixed DFC donor objects dated 2026-06-22 and their raw `layers/UMIs`, with the recorded subclass mapping and per-donor sampling seed. It does not invert normalized expression.
+
+```bash
+python reproduce.py rebuild-inputs --source-dir /data/public_raw \
+  --output ../paper3_inputs --r-library /data/R_library --allow-downloads
+python reproduce.py prepare-inputs --output ../paper3_inputs --allow-downloads
+```
+
+Place existing raw files, with their recorded basenames, in `--source-dir` to avoid downloads. Both commands are offline unless `--allow-downloads` is present. LIBD reconstruction needs HDF5Array, SingleCellExperiment and Matrix. Allow approximately 35 GB of free working space for cached raw files, extraction and reconstructed banks. The reconstruction test reused previously downloaded author files; it did not redownload their complete contents.
 
 ```bash
 python reproduce.py prepare-inputs --output ../paper3_inputs \
@@ -59,5 +67,7 @@ The archive includes eleven exact objects and has a checksum/source manifest. It
 Python dependencies for computation are pinned in `requirements.txt`: NumPy 2.2.6, pandas 2.2.3, SciPy 1.15.3, h5py 3.13.0 and Matplotlib 3.10.1. Python 3.12 is the tested local interpreter. The study R identity includes R 4.5.3, dtangle 2.0.9, edgeR 4.8.2 and jsonlite 2.0.0. Stage-specific bridges additionally check DESeq2, MEAD and dependencies using preserved protocol specifications.
 
 The runner requires an existing R library passed with `--r-library` and an `Rscript` executable (optionally `--rscript PATH`). It does not install packages. Environment mismatches stop before fitting. Select the matching environment explicitly rather than replacing the user's current environment.
+
+The cross-estimator comparison uses MuSiC 1.0.0 at commit `f21fe67f5670d5e9fca0ad7550abaae3423eb59c`, SingleCellExperiment 1.32.0 and Matrix 1.7-6. Its reference moments are memoized without changing the official `music_prop` function body. Independent calls to the uncached official API validate the cached implementation. `run --music-library PATH` adds an existing library for this stage; standalone `cross-method` accepts repeated `--r-library` options.
 
 Clinical analysis uses 288 samples (218 AD, 70 controls), a fixed 16,161-gene family and TMM outcome expression across composition-covariate arms. Source rates are fractions. Keep the literal outcome label `null` as text when reading CSVs.

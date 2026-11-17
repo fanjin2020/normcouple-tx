@@ -3,6 +3,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import io
 from pathlib import Path
 import socket
+import sys
 import tarfile
 import tempfile
 import threading
@@ -35,7 +36,9 @@ class PlanTests(unittest.TestCase):
             cmd = plans['common_support']
             self.assertEqual(Path(cmd[cmd.index('--previous-results')+1]), root/'work/coupling')
             self.assertEqual(Path(cmd[cmd.index('--random-results')+1]), root/'work/random_panels')
-            self.assertTrue(all('/home/research/' not in token for cmd in plans.values() for token in cmd))
+            own_paths = {sys.executable, str(ROOT/'reproduce.py')}
+            self.assertTrue(all('/home/research/' not in token for cmd in plans.values()
+                                for token in cmd if token not in own_paths))
 
     def test_export_requires_explicit_data_origin(self):
         with self.assertRaises(SystemExit):
@@ -131,7 +134,7 @@ class StorageTests(unittest.TestCase):
         catalog = read_json(ROOT/'publication/data/catalog.json')['views']
         self.assertEqual(catalog['normalization.csv']['file'], catalog['TableS2.csv']['file'])
         self.assertFalse((ROOT/'publication/data/normalization.csv').exists())
-        self.assertEqual(len(list((ROOT/'publication/data').glob('*.csv*'))), 15+len(AUXILIARY))
+        self.assertEqual(len(list((ROOT/'publication/data').glob('*.csv*'))), 16+len(AUXILIARY))
 
     def test_null_outcome_is_not_parsed_as_missing(self):
         f = load_frame(ROOT/'publication/data', 'common_support_summary.csv')

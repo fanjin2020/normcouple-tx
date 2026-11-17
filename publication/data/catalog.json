@@ -122,6 +122,12 @@
     },
     "analytic_curves.csv": {
       "file": "analytic_curves.csv"
+    },
+    "TableS16.csv": {
+      "file": "TableS16.csv"
+    },
+    "cross_method.csv": {
+      "file": "TableS16.csv"
     }
   }
 }

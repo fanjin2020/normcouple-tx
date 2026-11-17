@@ -2,14 +2,16 @@ cff-version: 1.2.0
 message: "Please cite the associated manuscript and the exact software release used."
 type: software
 title: "NormCouple-Tx: a framework for diagnosing normalization coupling in transcriptomic inference"
-version: 2.0.0
-date-released: '2026-11-15'
+version: 2.1.0
+date-released: '2026-11-17'
 repository-code: "https://github.com/fanjin2020/normcouple-tx"
 authors:
   - family-names: Fan
     given-names: Jin
   - family-names: Liu
     given-names: Chang
+  - family-names: Cao
+    given-names: Ying
   - family-names: Zhang
     given-names: Xiankun
   - family-names: Song

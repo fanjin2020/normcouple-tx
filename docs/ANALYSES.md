@@ -11,8 +11,9 @@ All commands use `reproduce.py`. Scientific fits run in `WORK`; the compact publ
 | coupling | Full confirmation parent, count-level clinical arrays | Inputs to common support and corrected clinical comparisons |
 | common_support | Equal retained budgets, both supports, multistep clinical probes, derivative qualification | Table S5-S7, S9-S10, S13-S15; clinical and matching data |
 | marker_associations | Donor-level marker/disease comparisons | Table S11; marker data |
+| cross_method | Fixed-response dtangle/MuSiC comparison with raw counts and fixed reference donors | Table S16 |
 
-Table S1 describes the fixed resources. Figure 1's curves are evaluated analytically and saved as a source CSV. `--stage common_support` automatically includes `random_panels` and `coupling`; `--stage all` includes all seven stages. Publication export requires complete receipts for all stages.
+Table S1 describes the fixed resources. Figure 1's curves are evaluated analytically and saved as a source CSV. `--stage common_support` automatically includes `random_panels` and `coupling`; `--stage all` includes all eight stages. Publication export requires complete receipts for all stages.
 
 ## Figure mapping
 
@@ -34,6 +35,7 @@ Table S1 describes the fixed resources. Figure 1's curves are evaluated analytic
 | FigS5 | clinical_markers.csv |
 | FigS6 | TableS12.csv |
 | FigS7 | TableS14.csv, TableS15.csv |
+| FigS8 | TableS16.csv |
 
 Four other auxiliary CSVs retain evidence needed for the text and checks: `power_paired_contrasts.csv`, `matching_balance.csv`, `diagnostic_performance.csv`, and `clinical_linear_checks.csv`. These are distinct analyses, not extra copies of table data.
 

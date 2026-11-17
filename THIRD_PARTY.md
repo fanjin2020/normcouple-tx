@@ -1,8 +1,9 @@
 # Third-party attribution
 
-The publication and orchestration code uses NumPy, pandas, SciPy, h5py and Matplotlib. Optional Excel export uses openpyxl. The R analyses call official dtangle, edgeR, DESeq2, and MEAD functions. Their package licenses remain applicable.
+The publication and orchestration code uses NumPy, pandas, SciPy, h5py and Matplotlib. Optional Excel export uses openpyxl. The R analyses call official dtangle, MuSiC, edgeR, DESeq2, and MEAD functions. Their package licenses remain applicable.
 
 - MEAD 1.0.2, Dongyue Xie and contributors, GPL >= 3; commit `d66fa10491fb86de720a173e64b5cb26eeeefcd7`, https://github.com/DongyueXie/MEAD.
+- MuSiC 1.0.0, official implementation at commit `f21fe67f5670d5e9fca0ad7550abaae3423eb59c`, https://github.com/xuranw/MuSiC. MuSiC is an external runtime dependency; its installed source and license are not replaced by this framework.
 - vashr 0.99.1, Mengyin Lu and Matthew Stephens, GPL-3; commit `4eaae3edf86b3c0fadc3c57bcb65a71d2a9c3755`, https://github.com/mengyin/vashr.
 - dtangle 2.0.9, official source archive retained with its package license: https://raw.githubusercontent.com/gjhunt/dtangle/master/dtangle_2.0.9.tar.gz. SHA256: `ae665623fe98b463590f8abd3b5efbb768de28b195e7603998d517808e690129`.
 - The study's frozen kernels are retained byte-for-byte, including embedded source and input definitions. Their third-party notices remain in `kernels/`; `kernels/layout.json` records original internal layouts.

@@ -14,7 +14,8 @@ TABLE_ALIASES = {'normalization.csv': 2, 'pseudocount.csv': 3, 'dose_grid.csv': 
                  'common_support_summary.csv': 5, 'common_support_contrasts.csv': 6,
                  'power_components.csv': 8, 'clinical_design.csv': 9, 'clinical_stability.csv': 10,
                  'actual_span.csv': 12, 'clinical_finite.csv': 13,
-                 'diagnostic_qualification.csv': 14, 'clinical_derivatives.csv': 15}
+                 'diagnostic_qualification.csv': 14, 'clinical_derivatives.csv': 15,
+                 'cross_method.csv': 16}
 AUXILIARY = ('dose_contrasts.csv', 'power_trajectories.csv', 'power_component_donors.csv', 'power_paired_contrasts.csv',
              'common_support_donor_subsets.csv', 'matching_balance.csv',
              'clinical_coefficient_pairs.csv.gz', 'clinical_markers.csv', 'diagnostic_performance.csv',
@@ -48,6 +49,47 @@ def analytic_curves():
     for step in (.1, .25, .5):
         values['change_' + str(step)] = np.log2(signal/(1+step)+1)-np.log2(signal+1)
     return pd.DataFrame(values)
+
+
+def cross_method_table(summary):
+    keys = ['reference_source','target_source','effect','method','probe']
+    values = summary.pivot(index=keys, columns='metric', values='donor_equal_mean')
+    metadata = summary.groupby(keys)[['donors','datasets']].first()
+    result = metadata.join(values[['fdp','power','coverage','availability','proportion_rmse',
+                                  'max_fraction_change','weight_l2','beta_rms','bh_crossings']])
+    for metric in ['fdp','beta_rms']:
+        subset = summary[summary.metric.eq(metric)].set_index(keys)
+        result[metric+'_mc_se'] = subset.conditional_mc_se
+    for metric in ['max_fraction_change','weight_identity_error']:
+        subset = summary[summary.metric.eq(metric)].set_index(keys)
+        result[metric+'_maximum'] = subset.max_value
+    return result.reset_index()
+
+
+def clinical_weight_geometry(fractions, cohort):
+    classes = ['Astro','EndoMural','Excit','Inhib','Micro','OPC','Oligo']
+    x = cohort.group.eq('AD').to_numpy(float)
+    cov = np.column_stack([np.ones(len(x)),cohort.age.to_numpy(float),cohort.sex.eq('M').to_numpy(float)])
+    records = []
+    for ref in ['LIBD','SEAAD']:
+        residuals, infos = [], []
+        for method in ['tmm','marker_matched']:
+            f = fractions[fractions.reference.eq(ref) & fractions.method.eq(method)]
+            if not f.sample_id.is_unique or set(f.sample_id) != set(cohort.sample_id):
+                raise ValueError('Clinical composition and cohort identifiers differ')
+            props = f.set_index('sample_id').loc[cohort.sample_id,classes].to_numpy(float)
+            c = np.column_stack([cov,props])
+            u,s,_ = np.linalg.svd(c,full_matrices=False)
+            basis = u[:,s > s[0]*max(c.shape)*np.finfo(float).eps]
+            z = x-basis@(basis.T@x)
+            residuals.append(z)
+            infos.append(float(z@z))
+        if min(infos) <= 0:
+            raise ValueError('Clinical exposure not estimable')
+        distance = float(np.linalg.norm(residuals[1]/infos[1]-residuals[0]/infos[0]))
+        error = abs(distance-np.linalg.norm(residuals[1]-residuals[0])/np.sqrt(np.prod(infos)))
+        records.append(dict(reference=ref,method='marker_matched',coefficient_weight_l2_vs_tmm=distance,weight_identity_error=error))
+    return pd.DataFrame(records)
 
 
 def collect(paths):
@@ -160,6 +202,11 @@ def collect(paths):
         mask = stability.reference.eq(ref) & stability.method.eq('marker_matched')
         stability.loc[mask, 'median_se_ratio'] = float((m.se / t.se).median())
     f['clinical_coefficient_pairs.csv.gz'] = pd.concat(pairs, ignore_index=True)
+    fractions = source('coupling', 'clinical/composition_predictions.csv')
+    cohort = source('coupling', 'clinical/analysis_cohort.csv')
+    geometry = clinical_weight_geometry(fractions, cohort)
+    f['clinical_stability.csv'] = f['clinical_stability.csv'].merge(geometry,on=['reference','method'],how='left',validate='one_to_one')
+    f['cross_method.csv'] = cross_method_table(source('cross_method','final/summary.csv'))
     markers = source('marker_associations', 'final_results/marker_gene_associations.csv.gz')
     markers = markers[markers.model.eq('primary') & markers.normalizer.eq('TMM_all') & markers.scope.eq('owner')]
     f['clinical_markers.csv'] = markers[['reference','cell_type','gene_id','available','log2FC',
@@ -244,7 +291,7 @@ def render(data, output, formats):
     env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', MPLBACKEND='Agg')
     subprocess.run([sys.executable, str(PUB / 'reproduce_figures.py'), '--data', str(data),
                     '--output', str(output), '--formats', *formats], env=env, check=True)
-    expected = {'Fig' + str(i) for i in range(1, 10)} | {'FigS' + str(i) for i in range(1, 8)}
+    expected = {'Fig' + str(i) for i in range(1, 10)} | {'FigS' + str(i) for i in range(1, 9)}
     for extension in formats:
         actual = {p.stem for p in Path(output).glob('*.' + extension)}
         if actual != expected:
@@ -277,8 +324,8 @@ def publish(destination, frames, tables, provenance, formats=('pdf',), make_work
             destination.rmdir()  # Only an empty destination is allowed here.
         os.replace(stage, destination)
     print('PUBLICATION OUTPUT', destination, flush=True)
-    print('15 supplementary CSVs; 11 additional figure/diagnostic datasets.' +
-          (' 9 main and 7 supplementary figures.' if formats else ' No figures requested.'))
+    print('16 supplementary CSVs; 11 additional figure/diagnostic datasets.' +
+          (' 9 main and 8 supplementary figures.' if formats else ' No figures requested.'))
     return destination
 
 
@@ -296,7 +343,7 @@ def export_published(destination, formats=('pdf',), make_workbook=False):
     data = PUB / 'data'
     manifest = read_json(PUB / 'published_manifest.json')
     verify_receipt(data, manifest['files'])
-    tables = {i: load_frame(data, 'TableS%d.csv' % i) for i in range(1, 16)}
+    tables = {i: load_frame(data, 'TableS%d.csv' % i) for i in range(1, 17)}
     frames = {name: load_frame(data, name) for name in AUXILIARY}
     return publish(destination, frames, tables,
                    dict(mode='published_data_replay', source_manifest=sha(PUB / 'published_manifest.json')),

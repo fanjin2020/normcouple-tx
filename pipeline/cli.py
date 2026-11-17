@@ -18,6 +18,12 @@ def parser():
     inp.add_argument('--sources', type=Path, help='Manifest containing real URLs for the exact prepared inputs')
     inp.add_argument('--allow-downloads', action='store_true')
     inp.add_argument('--archive', type=Path, help='Import a pack-inputs tar archive without network access')
+    raw = sub.add_parser('rebuild-inputs', help='Reconstruct exact banks from pinned author raw-count objects')
+    raw.add_argument('--source-dir', type=Path, required=True)
+    raw.add_argument('--output', type=Path, required=True)
+    raw.add_argument('--allow-downloads', action='store_true')
+    raw.add_argument('--rscript', default='Rscript')
+    raw.add_argument('--r-library', type=Path, action='append', default=[])
     check = sub.add_parser('check-inputs', help='Verify the exact scientific inputs before fitting')
     check.add_argument('--inputs', type=Path, required=True)
     check.add_argument('--bulk-cache', type=Path)
@@ -33,11 +39,30 @@ def parser():
     run.add_argument('--workers', type=int, default=36)
     run.add_argument('--rscript', default='Rscript')
     run.add_argument('--r-library', type=Path, required=True)
+    run.add_argument('--music-library', type=Path, help='Additional existing R library containing the pinned MuSiC implementation')
     run.add_argument('--resume', action='store_true')
     run.add_argument('--dry-run', action='store_true')
     run.add_argument('--output', type=Path, help='Publication output; defaults to WORK/final')
     run.add_argument('--formats', nargs='+', choices=('pdf','png','eps','tiff'), default=['pdf'])
     run.add_argument('--workbook', action='store_true', help='Also generate the optional Excel supplement')
+    cross = sub.add_parser('cross-method', help='Fixed-response comparison with official MuSiC and dtangle')
+    cross.add_argument('--inputs', type=Path, required=True)
+    cross.add_argument('--work', type=Path, required=True)
+    cross.add_argument('--rscript', default='Rscript')
+    cross.add_argument('--r-library', type=Path, action='append', required=True)
+    cross.add_argument('--workers', type=int, default=4)
+    cross.add_argument('--repetitions', type=int, default=20)
+    cross.add_argument('--batch-size', type=int, default=2)
+    cross.add_argument('--smoke', action='store_true', help='First donor per setting, at most two replicates')
+    cross.add_argument('--resume', action='store_true')
+    audit = sub.add_parser('sensitivity', help='Audit fixed outcomes across supplied composition estimates')
+    audit.add_argument('--outcomes', type=Path, required=True)
+    audit.add_argument('--design', type=Path, required=True)
+    audit.add_argument('--fractions', type=Path, required=True)
+    audit.add_argument('--baseline', required=True)
+    audit.add_argument('--exposure', default='exposure')
+    audit.add_argument('--covariates', nargs='*', default=[])
+    audit.add_argument('--output', type=Path, required=True)
     for name in ('export', 'figures', 'tables'):
         out = sub.add_parser(name, help='Export explicitly selected computed or published data')
         source = out.add_mutually_exclusive_group(required=True)
@@ -70,6 +95,9 @@ def main(argv=None):
     elif args.action == 'check-inputs':
         from .inputs import verify_inputs
         verify_inputs(args.inputs, args.bulk_cache)
+    elif args.action == 'rebuild-inputs':
+        from .rebuild import execute
+        execute(args)
     elif args.action == 'pack-inputs':
         from .inputs import pack_inputs
         print(pack_inputs(args.inputs, args.output))
@@ -81,6 +109,12 @@ def main(argv=None):
     elif args.action == 'status':
         from .run import status
         status(args.work)
+    elif args.action == 'cross-method':
+        from .cross_method import execute
+        execute(args)
+    elif args.action == 'sensitivity':
+        from .sensitivity import execute
+        execute(args)
     elif args.action == 'package':
         from .package import archive
         archive(args.output)

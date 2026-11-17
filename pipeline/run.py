@@ -13,7 +13,7 @@ from .io import ROOT, atomic_json, digest, inside, lock, read_json, receipt, sep
 from .runtime import materialize
 
 STAGES = ('normalization', 'mechanism', 'marker_grid', 'random_panels',
-          'coupling', 'common_support', 'marker_associations')
+          'coupling', 'common_support', 'marker_associations', 'cross_method')
 DEPENDENCIES = {'coupling': ('random_panels',), 'common_support': ('coupling',)}
 ENTRIES = {'normalization': 'normalization/run_revision.py', 'mechanism': 'mechanism/run_extension.py',
            'marker_grid': 'marker_grid/run.py', 'random_panels': 'random_panels/run.py',
@@ -36,9 +36,11 @@ REQUIRED = {
         'corrections/diagnostic_qualified_performance.csv', 'clinical_multistep/complete.json',
         'clinical_multistep/finite_perturbations.csv', 'clinical_multistep/derivative_steps.csv',
         'clinical_multistep/linear_approximation.csv'),
-    'marker_associations': ('protocol.json', 'STATUS.json', 'final_results/marker_gene_associations.csv.gz')}
+    'marker_associations': ('protocol.json', 'STATUS.json', 'final_results/marker_gene_associations.csv.gz'),
+    'cross_method': ('protocol.json', 'complete.json', 'final/receipt.json', 'final/summary.csv',
+                     'final/metrics.csv.gz', 'final/contrasts.csv.gz')}
 STATUS_FILES = {s: 'RUN_STATUS.json' for s in STAGES}
-STATUS_FILES.update(coupling='STATE.json', common_support='STATE.json', marker_associations='STATUS.json')
+STATUS_FILES.update(coupling='STATE.json', common_support='STATE.json', marker_associations='STATUS.json', cross_method='complete.json')
 SUCCESS = {'normalization': {'COMPLETE'}, 'mechanism': {'COMPLETE_REQUESTED_STAGES'},
            'marker_grid': {'COMPLETE_REQUESTED_STAGES'}, 'random_panels': {'COMPLETE'},
            'coupling': {'CONFIRMATION_COMPLETE'}, 'common_support': {'FOLLOWUP_COMPLETE'},
@@ -65,6 +67,17 @@ def commands(args, runtime):
              '--gene-map', str(inputs / 'gene_identity_map.csv'), '--external-cache', str(inputs / 'external')]
     plan = []
     for stage in selected_stages(args.stage):
+        if stage == 'cross_method':
+            cmd = [sys.executable, str(ROOT / 'reproduce.py'), 'cross-method', '--inputs', str(inputs),
+                   '--work', str(work / stage), '--workers', str(min(args.workers, 8)),
+                   '--repetitions', '20', '--batch-size', '4', '--rscript', str(args.rscript),
+                   '--r-library', str(Path(args.r_library).expanduser().resolve())]
+            if getattr(args, 'music_library', None):
+                cmd += ['--r-library', str(Path(args.music_library).expanduser().resolve())]
+            if getattr(args, 'resume', False) and (work / stage / 'protocol.json').exists():
+                cmd += ['--resume']
+            plan.append((stage, cmd))
+            continue
         cmd = [sys.executable, str(Path(runtime) / ENTRIES[stage]), *common]
         if stage == 'marker_associations':
             cmd += ['--counts', str(inputs / 'external/GSE174367_snRNA-seq_filtered_feature_bc_matrix.h5'),
@@ -90,7 +103,7 @@ def commands(args, runtime):
 
 def framework_identity():
     paths = [ROOT / 'reproduce.py', ROOT / 'kernels/layout.json']
-    paths += list((ROOT / 'pipeline').glob('*.py'))
+    paths += [p for p in (ROOT / 'pipeline').iterdir() if p.suffix in ('.py', '.R')]
     paths += list((ROOT / 'publication').glob('*.py'))
     paths += [ROOT / 'publication/table_schema.json', ROOT / 'publication/figure_captions.json']
     return digest({p.relative_to(ROOT).as_posix(): sha(p) for p in sorted(paths)})
@@ -153,10 +166,14 @@ def run_child(command, log, env):
 def stage_files(work, stage):
     folder = Path(work) / stage
     state = read_json(folder / STATUS_FILES[stage])
-    if state.get('status') not in SUCCESS[stage]:
+    if stage == 'cross_method':
+        if state.get('datasets') != 1680 or state.get('batches') != 210:
+            raise ValueError('Cross-method manuscript scope is incomplete')
+        verify_receipt(folder / 'final', read_json(folder / 'final/receipt.json')['files'])
+    elif state.get('status') not in SUCCESS[stage]:
         raise ValueError('Stage did not finish its manuscript scope: ' + stage + ': ' + str(state.get('status')))
     protocol = read_json(folder / 'protocol.json')
-    if protocol.get('settings', {}).get('software_fixture') or protocol.get('software_fixture'):
+    if protocol.get('settings', {}).get('software_fixture') or protocol.get('software_fixture') or protocol.get('software_smoke'):
         raise ValueError('A software fixture cannot be exported as research evidence')
     names = list(REQUIRED[stage])
     # Later stages consume sealed controls and clinical arrays, not just summary CSVs.
@@ -234,6 +251,12 @@ def execute(args):
         if not rscript:
             raise ValueError('Rscript was not found; no packages were installed')
         args.rscript = rscript
+        if 'cross_method' in selected_stages(args.stage):
+            import json
+            from .cross_method import MUSIC_COMMIT
+            libs = [str(library)] + ([str(Path(args.music_library).resolve())] if args.music_library else [])
+            expression = '.libPaths(c(' + ','.join(json.dumps(x) for x in libs) + ',.libPaths()));stopifnot(identical(packageDescription("MuSiC")$RemoteSha,' + json.dumps(MUSIC_COMMIT) + '))'
+            subprocess.run([rscript, '--vanilla', '-e', expression], env=env, check=True)
         r_record = work / '.pipeline/R_versions.json'
         r_record.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run([rscript, '--vanilla', str(runtime / 'normalization/r_bridge.R'), '--check',

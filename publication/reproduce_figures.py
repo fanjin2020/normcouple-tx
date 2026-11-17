@@ -246,6 +246,32 @@ def figureS7():
     finish(fig,'FigS7',['diagnostic_qualification.csv','clinical_derivatives.csv'])
 
 
+def figureS8():
+    f=read('cross_method.csv')
+    fig,axs=plt.subplots(2,2,figsize=(6.85,4.9))
+    fig.subplots_adjust(left=.13,right=.98,bottom=.20,top=.91,hspace=.58,wspace=.38)
+    methods=[('dtangle_tmm','dtangle + TMM',style.BLUE,'o'),
+             ('dtangle_marker','dtangle + MRN',style.TEAL,'s'),
+             ('music_marker','MuSiC, fixed markers',style.ROSE,'^')]
+    for row,effect in enumerate([0.,.5]):
+        for col,probe in enumerate(['test_counts','marker_counts']):
+            ax=axs[row,col]
+            for j,(method,label,color,marker) in enumerate(methods):
+                g=[select(f,reference_source=r,target_source=t,effect=effect,method=method,probe=probe) for r,t in ROUTES]
+                ax.errorbar(np.arange(4)+(j-1)*.16,[z.beta_rms for z in g],
+                    yerr=[z.beta_rms_mc_se for z in g],fmt=marker,color=color,ms=4.5,
+                    capsize=2,elinewidth=.8,label=label,linestyle='none')
+            ax.axhline(0,color='#A7ADB2',lw=.6,zorder=0)
+            ax.set_xticks(range(4),SHORT,fontsize=8)
+            ax.set_ylabel('Coefficient-change RMS')
+            ax.set_title(('Tested-count probe' if col==0 else 'Marker-count probe')+
+                         (' | null' if row==0 else ' | effect 0.5'))
+            ax.ticklabel_format(axis='y',style='sci',scilimits=(-3,3),useMathText=True)
+    for ax,label in zip(axs.flat,'abcd'):core.letter(ax,label)
+    fig.legend(*axs[0,0].get_legend_handles_labels(),loc='lower center',ncol=1,frameon=False,fontsize=8)
+    finish(fig,'FigS8',['cross_method.csv'])
+
+
 def main():
     global DATA,OUT,FORMATS
     p=argparse.ArgumentParser(description=__doc__)
@@ -255,8 +281,8 @@ def main():
     args=p.parse_args();DATA=args.data;OUT=separate(args.output,DATA);FORMATS=tuple(dict.fromkeys(args.formats));OUT.mkdir(parents=True,exist_ok=True)
     core.DATA=DATA;core.OUT=OUT;core.finish=finish;core.read=read
     for fn in [core.figure1,core.figure2,core.figure3,core.figure4,figure5,figure6,core.figure7,figure8,figure9,
-               core.figureS1,figureS2,figureS3,figureS4,core.figureS5,core.figureS6,figureS7]:
-        fn();print('Rendered',len(MANIFEST),'of 16',flush=True)
+               core.figureS1,figureS2,figureS3,figureS4,core.figureS5,core.figureS6,figureS7,figureS8]:
+        fn();print('Rendered',len(MANIFEST),'of 17',flush=True)
     assert set(MANIFEST)==set(CAPTIONS)
     (OUT/'figure_sources.json').write_text(json.dumps(MANIFEST,ensure_ascii=False,indent=2),encoding='utf-8')
 

@@ -20,13 +20,13 @@ def data(name):
 class PublicationTests(unittest.TestCase):
     def test_figure_captions_match_current_numbering(self):
         captions=json.loads((ROOT/'publication/figure_captions.json').read_text(encoding='utf-8'))
-        self.assertEqual(set(captions),{f'Fig{i}' for i in range(1,10)}|{f'FigS{i}' for i in range(1,8)})
+        self.assertEqual(set(captions),{f'Fig{i}' for i in range(1,10)}|{f'FigS{i}' for i in range(1,9)})
         self.assertIn('Eq. (1)',captions['Fig1'])
         self.assertTrue(all(not text.endswith('.') for text in captions.values()))
 
     def test_compact_table_rows_equal_source_csv(self):
         content=json.loads((ROOT/'publication/table_schema.json').read_text(encoding='utf-8'))
-        self.assertEqual([x['number'] for x in content['tables']],list(range(1,16)))
+        self.assertEqual([x['number'] for x in content['tables']],list(range(1,17)))
         manifest=read_json(ROOT/'publication/published_manifest.json')
         verify_receipt(DATA,manifest['files'])
         for table in content['tables']:

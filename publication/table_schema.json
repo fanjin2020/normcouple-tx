@@ -199,9 +199,11 @@
         "threshold_crossing_fraction",
         "median_absolute_beta_change",
         "jointly_significant_opposite_sign",
-        "median_se_ratio"
+        "median_se_ratio",
+        "coefficient_weight_l2_vs_tmm",
+        "weight_identity_error"
       ],
-      "note": "Each method is compared with TMM under the same reference. Threshold crossings count gained plus lost discoveries. Standard-error ratio is reported for the two MRN contrasts used in Fig. 8.",
+      "note": "Each method is compared with TMM under the same reference. Threshold crossings count gained plus lost discoveries. Standard-error ratios and coefficient-weight distances are reported for MRN. Blank weight distances for other methods were not evaluated. Eq. (S4) checks the weight identity.",
       "figures": "Fig. 8"
     },
     {
@@ -295,6 +297,34 @@
       ],
       "note": "Central differences compared at h and h/2. Agreement above 0.1 signals an unstable local approximation. Finite perturbations in Table S13 do not rely on a derivative approximation.",
       "figures": "Fig. S7"
+    },
+    {
+      "number": 16,
+      "title": "Fixed-response cross-estimator comparison",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "effect",
+        "method",
+        "probe",
+        "donors",
+        "datasets",
+        "fdp",
+        "power",
+        "coverage",
+        "availability",
+        "proportion_rmse",
+        "max_fraction_change",
+        "weight_l2",
+        "beta_rms",
+        "bh_crossings",
+        "fdp_mc_se",
+        "beta_rms_mc_se",
+        "max_fraction_change_maximum",
+        "weight_identity_error_maximum"
+      ],
+      "note": "Four reference-target settings and 42 units; 20 repetitions per unit and two outcome effects. Four observed reference donors remain fixed. Each method uses identical mixtures, outcomes and the full 100-gene BH family across probes. Coverage spans all available genes. Means weight donors equally; mc_se is conditional Monte Carlo uncertainty, not donor-population uncertainty. Power is undefined under the global null. Baseline contrasts are blank. The maximum columns span all datasets in the setting.",
+      "figures": "Fig. S8"
     }
   ],
   "resources": [
