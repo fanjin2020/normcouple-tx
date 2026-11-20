@@ -1,0 +1,46 @@
+{
+  "software": {
+    "h5py": "3.13.0",
+    "matplotlib": "3.10.1",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.15.3"
+  },
+  "R": {
+    "R": "R version 4.5.3 (2026-03-11)",
+    "dtangle": "2.0.9",
+    "edgeR": "4.8.2",
+    "jsonlite": "2.0.0"
+  },
+  "input_sha256": {
+    "LIBD/cells.csv": "4e6040ced760297c6023018f7f1ce45bca734669ffcad600cd8e095dc6166e6b",
+    "LIBD/counts.mtx": "0c8462764fc8c3df658b2f97af207e47c7b135562f1415b30b5bbd822a1c23e2",
+    "LIBD/genes.csv": "3ccc49137c549ecb2614d9ae9c7cf7f31a9081dc77df9c6af7930706d38ef4a4",
+    "SEAAD/cells.csv": "3072c166aa5462ff798cad5c86a58be9503b40f196ebf2c47df16a21729e53ae",
+    "SEAAD/counts.mtx": "15cde25b95a5e5562cd68694064534acc0d5e400d081c4f571299097655d689e",
+    "SEAAD/genes.csv": "9b40fa4e7d321b7201bc10a0d7be4faa40e24f01871a5a9200e7fda16c96ffae",
+    "external/GSE174367_snRNA-seq_cell_meta.csv.gz": "ab1a029deb43196e2bb1fea5907d838885750cfff3850c600c07588c7c7cdb2b",
+    "external/GSE174367_snRNA-seq_filtered_feature_bc_matrix.h5": "6ba98a1af8772af08c8cdd5e5e63eebb0890daed48cac2e1b8961dcc67069b77",
+    "gene_map": "272f6ca87545ad1cf7f91203f3a700a6b6ef55154278c4a0da590cc41103fb17"
+  },
+  "nucleus_count": 200,
+  "mixtures": 80,
+  "repetitions": 200,
+  "random_marker_sets": 10,
+  "outcomes": [
+    {
+      "effect": 0.0,
+      "name": "null"
+    },
+    {
+      "effect": 0.25,
+      "name": "up025"
+    },
+    {
+      "effect": 0.5,
+      "name": "up05"
+    }
+  ],
+  "allocation_policy": "fixed training-reference own-class weights",
+  "metadata_date": "2026-10-27"
+}

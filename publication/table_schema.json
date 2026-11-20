@@ -1,0 +1,506 @@
+{
+  "title": "Normalization coupling and marker restriction in brain transcriptome inference",
+  "tables": [
+    {
+      "number": 1,
+      "title": "Resources and analysis units",
+      "columns": [
+        "Resource",
+        "Analysis",
+        "Donors",
+        "Nuclei",
+        "Planned reference markers",
+        "Public source"
+      ],
+      "note": "Each reference bank used four donors; six different donors supplied its internal targets. Both references were applied to the same 15 external targets. Clinical cohorts comprised 218 cases and 70 controls (GSE125583) and nine cases and eight controls (GSE53697).",
+      "figures": "Figs. 1–9, S8–S11"
+    },
+    {
+      "number": 2,
+      "title": "Normalization with fixed outcomes",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "method",
+        "metric",
+        "mean",
+        "low",
+        "high",
+        "target_donors",
+        "planned_repetitions",
+        "paired_reference",
+        "paired_change",
+        "paired_low",
+        "paired_high"
+      ],
+      "note": "Direct effect 0.5 in 20 of 100 test genes. Coverage is for the 80 unaffected genes. Intervals quantify Monte Carlo uncertainty conditional on donor banks. Paired columns give the listed method minus observed total. Paired limits are pointwise 95% Monte Carlo intervals conditional on the donor banks; rates and rate differences are fractions. Blank estimates are unavailable or not applicable.",
+      "figures": "Fig. 2"
+    },
+    {
+      "number": 3,
+      "title": "Pseudocount and scale sensitivity",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "denominator",
+        "pseudocount",
+        "scale",
+        "ratio",
+        "metric",
+        "mean",
+        "low",
+        "high"
+      ],
+      "note": "All comparisons retain the same injected outcomes. The effective ratio is pseudocount divided by input scale.",
+      "figures": "Fig. 3"
+    },
+    {
+      "number": 4,
+      "title": "Relative-count marker perturbations",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "grid_id",
+        "fraction",
+        "amplitude",
+        "outcome",
+        "method",
+        "metric",
+        "mean",
+        "low",
+        "high",
+        "paired_reference",
+        "paired_change",
+        "paired_low",
+        "paired_high"
+      ],
+      "note": "Requested within-class fractions are 0.05, 0.10 and 0.20. Integer rounding and external annotation determine realized membership. Zero is the unperturbed control. Paired columns give MRN minus TMM for FDR (fdp), power and coverage. Paired limits are pointwise 95% Monte Carlo intervals conditional on the donor banks; rates and rate differences are fractions. Blank estimates are unavailable or not applicable.",
+      "figures": "Fig. 4 and Fig. S1"
+    },
+    {
+      "number": 5,
+      "title": "Common-support calibration and precision",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "subset_kind",
+        "support_rule",
+        "outcome",
+        "method",
+        "fdp",
+        "power",
+        "coverage",
+        "delivered_coverage",
+        "availability",
+        "proportion_rmse",
+        "bias",
+        "mean_se",
+        "coefficient_error_rms",
+        "exposure_r2",
+        "exposure_residual_ss",
+        "leverage",
+        "target_donors",
+        "planned_records",
+        "feasible_records",
+        "fdp__donor_q25",
+        "fdp__donor_q75",
+        "power__donor_q25",
+        "power__donor_q75",
+        "proportion_rmse__donor_q25",
+        "proportion_rmse__donor_q75"
+      ],
+      "note": "Donor-equal means. Global-null power is undefined (blank). Reference-feature-matched and random means average three fixed subsets within each donor. Each unit has 50 repetitions. Donor quartiles describe heterogeneity, not confidence intervals. All interventions are feasible; test availability is separate.",
+      "figures": "Figs. 5, 6, S3"
+    },
+    {
+      "number": 6,
+      "title": "Paired common-support method contrasts",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "comparison",
+        "subset_kind",
+        "support_rule",
+        "outcome",
+        "fdp",
+        "power",
+        "coverage",
+        "delivered_coverage",
+        "availability",
+        "proportion_rmse",
+        "bias",
+        "mean_se",
+        "coefficient_error_rms",
+        "exposure_r2",
+        "exposure_residual_ss",
+        "leverage"
+      ],
+      "note": "Differences between donor-equal means on identical draws and interventions. Effects on FDR and power are probabilities; multiply by 100 for percentage points. No significance test is attached to these descriptive contrasts.",
+      "figures": "Fig. S3"
+    },
+    {
+      "number": 7,
+      "title": "Common-support dose retention",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "units",
+        "draws",
+        "zero_budget_draws",
+        "requested_counts",
+        "retained_counts",
+        "retained_fraction",
+        "cell_class"
+      ],
+      "note": "Pooled count retention. The same reduced sample-by-class budget is used in both allocation rules and all seven perturbed subsets. Class indices 1-7: Astro, EndoMural, Excit, Inhib, Micro, OPC, Oligo. Blank draw counts in class rows are not applicable. Reference-feature balance is supplied as matching_balance.csv in the code repository identified on the title page.",
+      "figures": "Fig. S2"
+    },
+    {
+      "number": 8,
+      "title": "Coefficient variation at direct effect 0.25",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "method",
+        "mean_beta",
+        "bias",
+        "error_variance",
+        "leakage_variance",
+        "noise_variance",
+        "twice_covariance",
+        "empirical_sd",
+        "rms_se"
+      ],
+      "note": "Unperturbed internal targets; 20 affected genes. Variance components use the same 200 repetitions within gene and donor and are then averaged.",
+      "figures": "Fig. 7"
+    },
+    {
+      "number": 9,
+      "title": "Clinical design and estimability",
+      "columns": [
+        "reference",
+        "method",
+        "available_genes",
+        "planned_genes",
+        "prediction_reason",
+        "reason",
+        "df",
+        "composition_rank",
+        "exposure_r2",
+        "exposure_residual_ss",
+        "leverage"
+      ],
+      "note": "288 donors; 218 AD and 70 controls. All models share the fixed outcome matrix and the same 16,161-gene BH family.",
+      "figures": "Figs. 8, S4"
+    },
+    {
+      "number": 10,
+      "title": "Clinical coefficient and discovery stability",
+      "columns": [
+        "reference",
+        "method",
+        "planned_genes",
+        "discoveries",
+        "gained",
+        "lost",
+        "threshold_crossings",
+        "threshold_crossing_fraction",
+        "median_absolute_beta_change",
+        "jointly_significant_opposite_sign",
+        "median_se_ratio",
+        "coefficient_weight_l2_vs_tmm",
+        "weight_identity_error"
+      ],
+      "note": "Each method is compared with TMM under the same reference. Threshold crossings count gained plus lost discoveries. Standard-error ratios and coefficient-weight distances are reported for MRN. Blank weight distances for other methods were not evaluated. Eq. (S4) checks the weight identity.",
+      "figures": "Fig. 8"
+    },
+    {
+      "number": 11,
+      "title": "Donor-level clinical marker associations",
+      "columns": [
+        "reference",
+        "cell_type",
+        "planned",
+        "tested",
+        "absolute_FC_at_least_1_5",
+        "BH_discoveries",
+        "minimum_q"
+      ],
+      "note": "GSE174367, primary age-, sex- and batch-adjusted owner-class analyses. Fold-change counts are descriptive point estimates. Planned-family multiplicity correction spans both panels and all seven classes.",
+      "figures": "Fig. S5"
+    },
+    {
+      "number": 12,
+      "title": "Actual-span reporting diagnostics",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "rule",
+        "metric",
+        "mean",
+        "low",
+        "high",
+        "planned_donors"
+      ],
+      "note": "The same MEAD point predictions enter both reporting rules. HC3 inference concerns expression coefficients. Full-six requires six composition contrasts; actual-span uses the observed nuisance rank.",
+      "figures": "Fig. S6"
+    },
+    {
+      "number": 13,
+      "title": "Fixed-response clinical perturbations",
+      "columns": [
+        "reference",
+        "method",
+        "log_count_step",
+        "baseline_available",
+        "perturbed_available",
+        "paired_available",
+        "coefficient_change_rms",
+        "median_absolute_standardized_change",
+        "baseline_discoveries",
+        "probe_discoveries",
+        "threshold_crossings",
+        "threshold_crossing_fraction",
+        "interpretation"
+      ],
+      "note": "Only tested-gene counts in AD samples are multiplied by exp(log_count_step) for composition-input construction; responses remain fixed. Threshold crossings measure sensitivity, not false positives.",
+      "figures": "Fig. 9"
+    },
+    {
+      "number": 14,
+      "title": "Local diagnostic qualification",
+      "columns": [
+        "method",
+        "outcome",
+        "planned_records",
+        "original_finite_scores",
+        "qualified_scores",
+        "nonsmooth_records",
+        "numerical_invariance_records",
+        "status",
+        "interpretation"
+      ],
+      "note": "Post-hoc reliability audit of previously held-out scores. Derivative agreement must be at most 0.1; numerical invariance floor is 1e-6. Qualified scores all equal zero after flooring. Performance is available in the code repository identified on the title page.",
+      "figures": "Fig. S7"
+    },
+    {
+      "number": 15,
+      "title": "Clinical derivative-step checks",
+      "columns": [
+        "reference",
+        "method",
+        "derivative_step",
+        "stable_nuisance_rank",
+        "nuisance_rank",
+        "exposure_information",
+        "composition_direction_norm",
+        "exposure_aligned_composition",
+        "score",
+        "derivative_agreement",
+        "derivative_chain_absolute_error",
+        "local_smoothness_warning",
+        "status",
+        "input_chain_max_error",
+        "log_denominator_direction_rms"
+      ],
+      "note": "Central differences compared at h and h/2. Agreement above 0.1 signals an unstable local approximation. Finite perturbations in Table S13 do not rely on a derivative approximation.",
+      "figures": "Fig. S7"
+    },
+    {
+      "number": 16,
+      "title": "Fixed-response cross-estimator comparison",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "effect",
+        "method",
+        "probe",
+        "donors",
+        "datasets",
+        "fdp",
+        "power",
+        "coverage",
+        "availability",
+        "proportion_rmse",
+        "max_fraction_change",
+        "weight_l2",
+        "beta_rms",
+        "bh_crossings",
+        "fdp_mc_se",
+        "beta_rms_mc_se",
+        "max_fraction_change_maximum",
+        "weight_identity_error_maximum"
+      ],
+      "note": "Four workflows, three inputs, two outcome effects and four reference–target settings. Means weight target donors equally over 200 repetitions per unit and effect. The 42 units represent 27 target donors. Power is undefined under the global null. Baseline contrasts are blank.",
+      "figures": "Fig. S8"
+    },
+    {
+      "number": 17,
+      "title": "Paired changes and Monte Carlo precision",
+      "note": "Probe minus baseline within the same dataset. Estimates and two-sided 95% Monte Carlo intervals condition on the observed donors and references. A precision target of 0.02 denotes two percentage points for FDR or power. Blank entries denote an undefined endpoint or an inapplicable target.",
+      "columns": [
+        "reference_source",
+        "target_source",
+        "effect",
+        "method",
+        "probe",
+        "metric",
+        "donor_equal_change",
+        "conditional_mc_se",
+        "conditional_mc_low",
+        "conditional_mc_high",
+        "half_width",
+        "precision_target",
+        "target_met",
+        "donors",
+        "paired_datasets"
+      ],
+      "figures": "Fig. S9"
+    },
+    {
+      "number": 18,
+      "title": "Clinical estimator fit availability",
+      "note": "Two cohorts, two reference banks, six fitting specifications and three input conditions give 72 rows. Each row reports the test family, number of available tests and design diagnostics. The reason field identifies insufficient marker coverage or non-estimable inference.",
+      "columns": [
+        "method",
+        "probe",
+        "samples",
+        "family_size",
+        "available_tests",
+        "discoveries",
+        "composition_rank",
+        "residual_df",
+        "maximum_leverage",
+        "exposure_information",
+        "reason",
+        "minimum_markers_per_class",
+        "mapped_marker_total",
+        "cohort",
+        "reference"
+      ],
+      "figures": "Fig. S10"
+    },
+    {
+      "number": 19,
+      "title": "Clinical coefficient and discovery contrasts",
+      "note": "Baseline rows compare different workflows with baseline dtangle + TMM; probe rows compare a workflow with its own baseline. BH crossings are gained plus lost calls within the same cohort and test family. Signed change in a clinical list does not establish a false discovery.",
+      "columns": [
+        "baseline",
+        "method",
+        "probe",
+        "available",
+        "reason",
+        "max_fraction_change",
+        "weight_l2",
+        "beta_rms",
+        "beta_max",
+        "weight_identity_error",
+        "se_ratio_median",
+        "bh_crossings",
+        "gained",
+        "lost",
+        "family_size",
+        "crossing_fraction",
+        "cohort",
+        "reference"
+      ],
+      "figures": "Fig. S10"
+    },
+    {
+      "number": 20,
+      "title": "Realized count dose and gene-level sensitivity in two brain cohorts",
+      "note": "GSE125583: 218 cases/70 controls; GSE53697: 9/8. Input change is imposed in cases. Count share and raw library changes are sample medians; effective library size equals raw size times the TMM factor. Each reference uses its own dtangle/TMM baseline. Own and family crossings count selected and all tested genes changing BH status (q <= 0.05). Signed beta changes apply only to singletons. LIBD fits in GSE53697 lack marker coverage (Table S18); their blank results are unavailable, not zero.",
+      "columns": [
+        "cohort",
+        "probe",
+        "selected_genes",
+        "selected_ids",
+        "AD_input_change_pct",
+        "AD_count_share_pct",
+        "AD_library_change_pct",
+        "AD_effective_q25_pct",
+        "AD_effective_median_pct",
+        "AD_effective_q75_pct",
+        "control_library_change_pct",
+        "control_effective_q25_pct",
+        "control_effective_median_pct",
+        "control_effective_q75_pct",
+        "LIBD_singleton_beta_change",
+        "LIBD_own_BH_crossings",
+        "LIBD_family_BH_crossings",
+        "SEAAD_singleton_beta_change",
+        "SEAAD_own_BH_crossings",
+        "SEAAD_family_BH_crossings"
+      ],
+      "figures": "Fig. 9; Sections 3.8 and 3.11"
+    },
+    {
+      "number": 21,
+      "title": "Donor-weighted errors against tissue-block imaging proportions",
+      "note": "Huuki-Myers et al. prefrontal cortex: 14 bulk libraries, seven matched blocks, five held-out donors. Only reference-derived transfer panels met the ten-marker minimum in every class. Technical libraries and eligible imaging sections were averaged within block. Errors were averaged within donor and then equally across donors with measurements for that class. MAE and RMSE are in fraction units; delta is MRN minus TMM. Oligodendrocytes and OPCs are combined. These measurements evaluate proportions, not disease associations.",
+      "figures": "Fig. S11; tissue-block imaging comparison",
+      "columns": [
+        "reference",
+        "panel",
+        "cell_type",
+        "donors",
+        "blocks",
+        "tmm_mae",
+        "mrn_mae",
+        "mrn_minus_tmm_mae",
+        "tmm_rmse",
+        "mrn_rmse"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "Resource": "LIBD",
+      "Analysis": "Reference and simulated targets",
+      "Donors": 10,
+      "Nuclei": 56447.0,
+      "Planned reference markers": 300.0,
+      "Public source": "https://doi.org/10.1186/s13059-025-03552-3"
+    },
+    {
+      "Resource": "SEA-AD",
+      "Analysis": "Reference and simulated targets",
+      "Donors": 10,
+      "Nuclei": 43391.0,
+      "Planned reference markers": 300.0,
+      "Public source": "https://brain-map.org/consortia/sea-ad/our-data"
+    },
+    {
+      "Resource": "GSE174367",
+      "Analysis": "External simulated targets",
+      "Donors": 15,
+      "Nuclei": 50043.0,
+      "Planned reference markers": null,
+      "Public source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE174367"
+    },
+    {
+      "Resource": "GSE174367",
+      "Analysis": "Donor-level marker associations",
+      "Donors": 18,
+      "Nuclei": 61472.0,
+      "Planned reference markers": null,
+      "Public source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE174367"
+    },
+    {
+      "Resource": "GSE125583",
+      "Analysis": "Clinical bulk association",
+      "Donors": 288,
+      "Nuclei": null,
+      "Planned reference markers": null,
+      "Public source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE125583"
+    },
+    {
+      "Resource": "GSE53697",
+      "Analysis": "Prefrontal clinical bulk association",
+      "Donors": 17,
+      "Nuclei": null,
+      "Planned reference markers": null,
+      "Public source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE53697"
+    }
+  ]
+}

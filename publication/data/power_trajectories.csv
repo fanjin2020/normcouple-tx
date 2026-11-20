@@ -1,0 +1,13 @@
+reference_source,target_source,condition,method,rule,metric,mean,mcse,low,high,planned_donors,contributing_donors,uncertainty
+LIBD,LIBD,up01,tmm,full_six,power,0.4120833333333333,0.0048716424965489,0.4025349140400973,0.4216317526265693,6,6,MC conditional on fixed donor banks
+LIBD,LIBD,up025,tmm,full_six,power,0.8942916666666666,0.0042285325477024,0.8860037428731697,0.9025795904601636,6,6,MC conditional on fixed donor banks
+LIBD,LIBD,up05,tmm,full_six,power,0.9970416666666668,0.0005032956018781,0.9960552072869856,0.998028126046348,6,6,MC conditional on fixed donor banks
+LIBD,LIBD,up01,marker_matched,full_six,power,0.3819166666666667,0.0044744567871331,0.3731467313638857,0.3906866019694476,6,6,MC conditional on fixed donor banks
+LIBD,LIBD,up025,marker_matched,full_six,power,0.8386666666666667,0.0051066309898994,0.8286576699264637,0.8486756634068696,6,6,MC conditional on fixed donor banks
+LIBD,LIBD,up05,marker_matched,full_six,power,0.9910416666666668,0.0011238517000807,0.9888389173345083,0.993244415998825,6,6,MC conditional on fixed donor banks
+SEAAD,SEAAD,up01,tmm,full_six,power,0.260125,0.0077745301482265,0.2448869209094759,0.2753630790905241,6,6,MC conditional on fixed donor banks
+SEAAD,SEAAD,up025,tmm,full_six,power,0.9495,0.0024193257767086,0.944758121477651,0.954241878522349,6,6,MC conditional on fixed donor banks
+SEAAD,SEAAD,up05,tmm,full_six,power,0.9999583333333332,4.166666666666671e-05,0.9998766666666666,1.00004,6,6,MC conditional on fixed donor banks
+SEAAD,SEAAD,up01,marker_matched,full_six,power,0.0954166666666666,0.0041882689590396,0.0872076595069489,0.1036256738263844,6,6,MC conditional on fixed donor banks
+SEAAD,SEAAD,up025,marker_matched,full_six,power,0.6754166666666667,0.0070356794395338,0.6616267349651803,0.689206598368153,6,6,MC conditional on fixed donor banks
+SEAAD,SEAAD,up05,marker_matched,full_six,power,0.9826666666666668,0.0008581928541268,0.980984608672578,0.9843487246607552,6,6,MC conditional on fixed donor banks

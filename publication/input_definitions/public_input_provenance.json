@@ -1,0 +1,38 @@
+{
+  "accession": "GSE125583",
+  "annotation": "Deposited Entrez IDs; pinned NCBI one-to-one Ensembl mapping",
+  "annotation_provenance": {
+    "bytes": 5199309,
+    "headers": {
+      "Content-Length": "5199309",
+      "ETag": null,
+      "Last-Modified": "Mon, 26 Oct 2026 08:10:36 GMT"
+    },
+    "retrieved_unix": 1793012775.352502,
+    "sha256": "def37d627cf818a44b16b600317f776e392e060c11bb7f21676b6aac1f746f3d",
+    "snapshot_sha256": "b9753d7701e90390b10efecec07021fb06f741527714638765f299fee3873bd8",
+    "source_sha256": "def37d627cf818a44b16b600317f776e392e060c11bb7f21676b6aac1f746f3d",
+    "transformation": "Homo sapiens tax_id 9606; Entrez/Ensembl links from NCBI dbXrefs; both-way one-to-one flag; no symbol-based guessing",
+    "url": "https://ftp.ncbi.nlm.nih.gov/gene/DATA/GENE_INFO/Mammalia/Homo_sapiens.gene_info.gz"
+  },
+  "genes": 30727,
+  "genome": "GRCh38 as documented in GEO",
+  "measurement": "deposited unnormalized gene-level read counts",
+  "rejected_normalized_column": "VALUE",
+  "samples": 289,
+  "selected_column": "count",
+  "sources": [
+    {
+      "bytes": 91668480,
+      "name": "GSE125583_RAW.tar",
+      "sha256": "f13f8b565230403684a9ff0658b38ac0dd49d682df949b5cd9fceb6a1d88e3ec",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE125nnn/GSE125583/suppl/GSE125583_RAW.tar"
+    },
+    {
+      "bytes": 19549,
+      "name": "GSE125583_family.soft.gz",
+      "sha256": "47b91efcb5f33e456490d3a9d5620ce8037b55edb5abfe376fbedddc549529a3",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE125nnn/GSE125583/soft/GSE125583_family.soft.gz"
+    }
+  ]
+}

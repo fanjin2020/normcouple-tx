@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "views": {
+    "TableS1.csv": {
+      "file": "TableS1.csv"
+    },
+    "TableS2.csv": {
+      "file": "TableS2.csv"
+    },
+    "TableS3.csv": {
+      "file": "TableS3.csv"
+    },
+    "TableS4.csv": {
+      "file": "TableS4.csv"
+    },
+    "TableS5.csv": {
+      "file": "TableS5.csv"
+    },
+    "TableS6.csv": {
+      "file": "TableS6.csv"
+    },
+    "TableS7.csv": {
+      "file": "TableS7.csv"
+    },
+    "TableS8.csv": {
+      "file": "TableS8.csv"
+    },
+    "TableS9.csv": {
+      "file": "TableS9.csv"
+    },
+    "TableS10.csv": {
+      "file": "TableS10.csv"
+    },
+    "TableS11.csv": {
+      "file": "TableS11.csv"
+    },
+    "TableS12.csv": {
+      "file": "TableS12.csv"
+    },
+    "TableS13.csv": {
+      "file": "TableS13.csv"
+    },
+    "TableS14.csv": {
+      "file": "TableS14.csv"
+    },
+    "TableS15.csv": {
+      "file": "TableS15.csv"
+    },
+    "normalization.csv": {
+      "file": "TableS2.csv"
+    },
+    "pseudocount.csv": {
+      "file": "TableS3.csv"
+    },
+    "dose_grid.csv": {
+      "file": "TableS4.csv"
+    },
+    "common_support_summary.csv": {
+      "file": "TableS5.csv"
+    },
+    "common_support_contrasts.csv": {
+      "file": "TableS6.csv"
+    },
+    "power_components.csv": {
+      "file": "TableS8.csv"
+    },
+    "clinical_design.csv": {
+      "file": "TableS9.csv"
+    },
+    "clinical_stability.csv": {
+      "file": "TableS10.csv"
+    },
+    "actual_span.csv": {
+      "file": "TableS12.csv"
+    },
+    "clinical_finite.csv": {
+      "file": "TableS13.csv"
+    },
+    "diagnostic_qualification.csv": {
+      "file": "TableS14.csv"
+    },
+    "clinical_derivatives.csv": {
+      "file": "TableS15.csv"
+    },
+    "dose_retention.csv": {
+      "file": "TableS7.csv",
+      "filter": "all_classes"
+    },
+    "dose_by_class.csv": {
+      "file": "TableS7.csv",
+      "filter": "individual_classes"
+    },
+    "dose_contrasts.csv": {
+      "file": "dose_contrasts.csv"
+    },
+    "power_trajectories.csv": {
+      "file": "power_trajectories.csv"
+    },
+    "power_component_donors.csv": {
+      "file": "power_component_donors.csv"
+    },
+    "power_paired_contrasts.csv": {
+      "file": "power_paired_contrasts.csv"
+    },
+    "common_support_donor_subsets.csv": {
+      "file": "common_support_donor_subsets.csv"
+    },
+    "matching_balance.csv": {
+      "file": "matching_balance.csv"
+    },
+    "clinical_coefficient_pairs.csv.gz": {
+      "file": "clinical_coefficient_pairs.csv.gz"
+    },
+    "clinical_markers.csv": {
+      "file": "clinical_markers.csv"
+    },
+    "diagnostic_performance.csv": {
+      "file": "diagnostic_performance.csv"
+    },
+    "clinical_linear_checks.csv": {
+      "file": "clinical_linear_checks.csv"
+    },
+    "analytic_curves.csv": {
+      "file": "analytic_curves.csv"
+    },
+    "TableS16.csv": {
+      "file": "TableS16.csv"
+    },
+    "cross_method.csv": {
+      "file": "TableS16.csv"
+    },
+    "TableS17.csv": {
+      "file": "TableS17.csv"
+    },
+    "cross_precision.csv": {
+      "file": "TableS17.csv"
+    },
+    "TableS18.csv": {
+      "file": "TableS18.csv"
+    },
+    "clinical_estimators.csv": {
+      "file": "TableS18.csv"
+    },
+    "TableS19.csv": {
+      "file": "TableS19.csv"
+    },
+    "clinical_estimator_contrasts.csv": {
+      "file": "TableS19.csv"
+    },
+    "TableS20.csv": {
+      "file": "TableS20.csv"
+    },
+    "clinical_probes.csv": {
+      "file": "TableS20.csv"
+    },
+    "TableS21.csv": {
+      "file": "TableS21.csv"
+    },
+    "imaging_comparison.csv": {
+      "file": "TableS21.csv"
+    }
+  }
+}

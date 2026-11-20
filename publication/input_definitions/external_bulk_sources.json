@@ -1,0 +1,25 @@
+{
+  "accession": "GSE53697",
+  "source": "Mount Sinai Brain Bank; dorsolateral prefrontal cortex",
+  "measurement": "Deposited unnormalized raw read abundances, including fractional values; RPKM columns excluded",
+  "samples": 17,
+  "covariate_table": "GSE53697_batch.csv",
+  "covariate_source": {
+    "doi": "10.7554/eLife.10421.035",
+    "file": "elife-10421-supp1.xlsx",
+    "sha256": "e41ac7902923cb5ba33087a6465fbf568aed4b632cb2cda3a795f90c084f30c1",
+    "sheet": "1A Sample Summary",
+    "mapping": "RNA-seq sample numbers 1-8 are C1-C8 and 9-17 are A9-A17; RNA-seq batch column",
+    "excluded_covariates": "Age and PMI use within-group patient numbering without an explicit RNA-seq sample crosswalk; sex is not reported. No individual-level mapping is inferred."
+  },
+  "files": {
+    "GSE53697_RNAseq_AD.txt.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE53nnn/GSE53697/suppl/GSE53697_RNAseq_AD.txt.gz",
+      "sha256": "222ebb6ce427c5dff2bf72d5cc1851c7b8035b6d03f4ea887fc556d1f419cc42"
+    },
+    "GSE53697_family.soft.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE53nnn/GSE53697/soft/GSE53697_family.soft.gz",
+      "sha256": "457b31303f5fa7fb23ee6a1ed76f014e292ea1e9f1878f3e96bf8fe599b9ba92"
+    }
+  }
+}

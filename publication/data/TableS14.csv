@@ -1,0 +1,15 @@
+method,outcome,planned_records,original_finite_scores,qualified_scores,nonsmooth_records,numerical_invariance_records,status,interpretation
+marker_denominator_only,null,1470,1067,1067,0,1067,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+marker_denominator_only,up025,1470,1067,1067,0,1067,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+marker_matched,null,1470,1067,1067,0,1067,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+marker_matched,up025,1470,1067,1067,0,1067,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+nnls_linear,null,1470,1061,1061,0,1061,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+nnls_linear,up025,1470,1061,1061,0,1061,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+nnls_marker_matched,null,1470,1061,1061,0,1061,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+nnls_marker_matched,up025,1470,1061,1061,0,1061,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+tmm,null,1470,1067,0,1067,0,NO_QUALIFIED_DERIVATIVE,Post-hoc reliability audit of the original held-out scores; not independent validation
+tmm,up025,1470,1067,0,1067,0,NO_QUALIFIED_DERIVATIVE,Post-hoc reliability audit of the original held-out scores; not independent validation
+tmm_exclude_both,null,1470,1067,1067,0,1067,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+tmm_exclude_both,up025,1470,1067,1067,0,1067,QUALIFIED_SUBSET_ONLY,Post-hoc reliability audit of the original held-out scores; not independent validation
+tmm_exclude_factor,null,1470,1067,0,1067,0,NO_QUALIFIED_DERIVATIVE,Post-hoc reliability audit of the original held-out scores; not independent validation
+tmm_exclude_factor,up025,1470,1067,0,1067,0,NO_QUALIFIED_DERIVATIVE,Post-hoc reliability audit of the original held-out scores; not independent validation

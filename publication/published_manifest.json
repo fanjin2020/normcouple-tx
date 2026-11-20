@@ -1,0 +1,104 @@
+{
+  "scope": "Manuscript tables and figure inputs; clinical dose and gene-level results are derived from receipt-verified measurements.",
+  "estimator_provenance": {
+    "mode": "computed_estimators",
+    "run_signature": "ded7937761f67519c720af2c4d8f514274b3cb9decbc5fa34f35722ed3ffd84f",
+    "analysis_sources": {
+      "cross_method/final/summary.csv": "ddc8bd9c3fa90a93170e33215c36018fa41a1b55d9580bb0708ee44e1e2008d3",
+      "cross_method/final/paired_precision.csv": "eafc8382a971e5313926df6dfde440828f2d254e242a5a123eb808ba734cf436",
+      "clinical_estimators/final/method_summary.csv": "2c727f68cbcf0d694cf84f3ce20f40da64769c5491852472579f60f612dc274c",
+      "clinical_estimators/final/paired_sensitivity.csv": "f5d5bcdcb6cbf487ebf1d4312c56570914a570e2dd1b3989f468e11008f7a6d8"
+    }
+  },
+  "files": {
+    "TableS1.csv": "e0254766eba8c763a155401fa8c6f561553b7f55cc5a77c581946a73922518f1",
+    "TableS10.csv": "b8a6baaa0081180322a917b756464f2bb08900e18445fd1b08a561aa81de3058",
+    "TableS11.csv": "160e94ee8d0e4c02134b9ea785cc74aa4634565c92317d1f4f8f0f41f409058c",
+    "TableS12.csv": "02e76cc0da7369383e735913375b85e83c0f904813da2e54ac2fc2690344f669",
+    "TableS13.csv": "19ac224ffaaf22b6906b46811d59b80e732f5d68b5c6a30b229ae4841fae5369",
+    "TableS14.csv": "8113b5e0c6b329ea099262ef7ef80e31e3a64153d698c42231d5bbda7a3e06c2",
+    "TableS15.csv": "b16f28342de02f476cea0cfb9fa2deae9d9baf4b8ff754d2d049fe30793d0afd",
+    "TableS16.csv": "fd3e157cd9e3b80c6472649fd2af285c977340cd76dd5c03cd39e8cac7e9cecc",
+    "TableS17.csv": "eafc8382a971e5313926df6dfde440828f2d254e242a5a123eb808ba734cf436",
+    "TableS18.csv": "2c727f68cbcf0d694cf84f3ce20f40da64769c5491852472579f60f612dc274c",
+    "TableS19.csv": "f5d5bcdcb6cbf487ebf1d4312c56570914a570e2dd1b3989f468e11008f7a6d8",
+    "TableS2.csv": "ba597b1e6e7b950d2464aa17f637877833bba00f72d9b7d7afb408f123674d39",
+    "TableS3.csv": "28330e06a70df8f1631ce4ee38fb76fe16665f543ef54ac3d971c905fdceae43",
+    "TableS4.csv": "2e917e696c20ec344a3fc67d0eceeda84d985ee36ca5d25fd5c5789b4ae4f5f3",
+    "TableS5.csv": "dbfe9f54e7d8468b3d7197aa5534b3ccee95a38eabbc79edc0a68a248405f063",
+    "TableS6.csv": "83f10c893c47b7de23dde04362b06c30a196dc3926173cc0b31d3661696d6732",
+    "TableS7.csv": "8cbd6cbdad79896fa079628e93f9cd499a805763719277ad0f7b35d96e47b10a",
+    "TableS8.csv": "305a59124feb0312b48b96163146b624006806cf56ced1dfb7ef8be31a7c2b08",
+    "TableS9.csv": "c98827e11d10ef02478aa015961592cc9bb7fbb3f316468124e02bb2f31f0f0c",
+    "analytic_curves.csv": "257f64ce5d20423f8945cef0bbce9add559afe3ab1b1d916f9e26d9b07b22883",
+    "catalog.json": "cfa45ee46d0d9afd326a7522fe5ac035d2f60474aea99d144bbd6901a23900ee",
+    "clinical_coefficient_pairs.csv.gz": "dc0237a09663752002b1def9b70fe58f5e87464ab5592437019221f0f10d3855",
+    "clinical_linear_checks.csv": "a5a9f61d343302eccb860922e54e261887a44b65b32e58e4b0df960c353bd1bc",
+    "clinical_markers.csv": "9073298b4d506c8a88098b3646214cfe426fef90be0243972646136904190952",
+    "common_support_donor_subsets.csv": "3b43d2cc2e8ff03dc1f4fe46d5ea679b6aca408ac744c5ae154038bed20ca567",
+    "diagnostic_performance.csv": "0c00af914b9b6e83d3b64af832921ab477511e9d1aad312d16fc08d2c61f3ca2",
+    "dose_contrasts.csv": "0a0440cd93c0c0223cd3d9013e0c1e33d0ac2c757354bc05860d7cc4cdc0a839",
+    "matching_balance.csv": "facc4770462316adb1334ef3f027773cb4d9ec03791a0f80e85c21bd64f281c7",
+    "power_component_donors.csv": "a9d3776f0afdfc83d817be8df7495445569b17b2836f8c7bef740f47f5ec6982",
+    "power_paired_contrasts.csv": "3a379bec59b3fc8b399a51a588c691c877864b7ead41c430bf5abef6dcba4bce",
+    "power_trajectories.csv": "26f1b638430c8f11e78814c97f6982fe52184996893f43ccdb2eec8f7906fc13",
+    "TableS20.csv": "bc0ca15d40e516f1cc01d31cf4cc97f4de6638c48f92ea9cbfc99a96a4908d5b",
+    "TableS21.csv": "70fa66103ba7c9da064afd1631bac327da5effb379c2fb036321f8b7eb8d3d36"
+  },
+  "table_rows": {
+    "1": 6,
+    "2": 112,
+    "3": 160,
+    "4": 1640,
+    "5": 448,
+    "6": 168,
+    "7": 32,
+    "8": 6,
+    "9": 10,
+    "10": 10,
+    "11": 14,
+    "12": 32,
+    "13": 30,
+    "14": 14,
+    "15": 40,
+    "16": 96,
+    "17": 256,
+    "18": 72,
+    "19": 68,
+    "20": 28,
+    "21": 12
+  },
+  "clinical_probe_provenance": {
+    "receipt_sha256": "f896a13a247121f214220d2f19223378997f93987a2411657e48dc1f61c679ce",
+    "producer_framework_sha256": "c10ec74e3fc989eef61ab893b24b1d00b86fd24a6aca3a5c79678e269f73d11b",
+    "clinical_inputs": {
+      "GSE125583": {
+        "raw": "62f2de0be5718953e4d2bab03f40c601b17520ce14b92960b4729f23c9cab66c",
+        "cohort_sha256": "4a0ce0bebabbbec07d4e9caa012b42bbafa73ba536ea74e5d3b77a5c95d7a99a",
+        "outcome_sha256": "f1cd5534cf343249ccc664953eb4bc8bc161ec70bbbc70c30cc51bf1eb06263a"
+      },
+      "GSE53697": {
+        "raw": "556fa3bc74ae2f66225a57565400d31de2238240121dad84eac3c6527418e7a7",
+        "cohort_sha256": "556c7f62287ccd80267e67c05585cc214ee5c5542c9fe801760459522a039302",
+        "outcome_sha256": "0a26e00882f0e7d05ed8c5da576c55fd33db3b86fc2448f6c22f85018a3ad67f"
+      }
+    }
+  },
+  "paired_interval_provenance": {
+    "normalization/tables/paired_summary.csv": "1c3d85ceb26beec189b86c55073ddfd58328d127f9a133e113ddc09e07f776a4",
+    "dose_contrasts.csv": "0a0440cd93c0c0223cd3d9013e0c1e33d0ac2c757354bc05860d7cc4cdc0a839"
+  },
+  "imaging_provenance": {
+    "source_sha256": {
+      "DLPFC_bulk_counts.txt": "290861e3a23fd366fea2bb963c29657cd596f2481a9981bac9669f131420a8c3",
+      "sample_info.csv": "84f27820c79aff05788974553bc3284f769ffe36dc501a7f143200f3cb5cfb10",
+      "HALO_cell_type_proportions.csv": "4d3c4bb8a310a39b1cdd92e7f4535fed5bdfb969d25cfd6361e720cf7dd6d74a"
+    },
+    "matched": {
+      "matched_libraries": 14,
+      "matched_blocks": 7,
+      "matched_donors": 5,
+      "measured_block_class_pairs": 30
+    }
+  }
+}
