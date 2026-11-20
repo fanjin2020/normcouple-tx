@@ -1,6 +1,0 @@
-Resource,Analysis,Donors,Nuclei,Planned reference markers,Public source
-LIBD,Reference and simulated targets,10,56447.0,300.0,https://doi.org/10.1186/s13059-025-03552-3
-SEA-AD,Reference and simulated targets,10,43391.0,300.0,https://brain-map.org/consortia/sea-ad/our-data
-GSE174367,External simulated targets,15,50043.0,,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE174367
-GSE174367,Donor-level marker associations,18,61472.0,,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE174367
-GSE125583,Clinical bulk association,288,,,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE125583
