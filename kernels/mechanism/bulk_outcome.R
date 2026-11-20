@@ -1,0 +1,6 @@
+args <- commandArgs(TRUE)
+.libPaths(c(args[3], .libPaths()))
+x <- as.matrix(read.csv(args[1], row.names=1, check.names=FALSE))
+stopifnot(all(is.finite(x)), all(x>=0))
+obj <- edgeR::calcNormFactors(edgeR::DGEList(counts=x), method="TMM")
+write.csv(data.frame(sample=colnames(x), denominator=obj$samples$lib.size*obj$samples$norm.factors),args[2],row.names=FALSE)
