@@ -1,11 +1,16 @@
 # NormCouple-Tx
 
-**Normalization-coupling diagnostics for transcriptomics.** Version 2.2.2.
+**Normalization-coupling diagnostics for transcriptomics.** Version 2.3.0.
+
+For the CBC figures and the finite-dose, held-out anchor experiment, use
+[`bash run_cbc.sh`](docs/CBC.md). It reuses verified inputs and does not rerun
+the original benchmarks. The archived 2.2.2 study remains available through
+[its Zenodo DOI](https://doi.org/10.5281/zenodo.24394454).
 
 Run the six evidence checks from a completed estimator analysis with `bash run_evidence.sh`.
 See [evidence protocol and inputs](docs/EVIDENCE.md).
 
-NormCouple-Tx connects input verification, statistical analysis, compact numerical outputs and manuscript figures for **Normalization coupling and marker restriction in brain transcriptome inference**, prepared for *Neuroinformatics*.
+NormCouple-Tx connects fixed-response analyses, compact numerical outputs and publication figures. The CBC workflow adds paired library-preparation doses, a donor-isolated comparison of fixed anchors and the original rules, and a clinical feasibility check.
 
 Public repository: [fanjin2020/normcouple-tx](https://github.com/fanjin2020/normcouple-tx).
 
@@ -15,7 +20,14 @@ Authors: Jin Fan, Chang Liu, Ying Cao, Xiankun Zhang, Chen Song. Jin Fan and Cha
 
 `reproduce.py` connects verified inputs, dependency-ordered computation, compact tables and all manuscript figures. Full scientific fitting targets Linux. Publication export and software tests also run on Windows. No command installs packages automatically.
 
-Use an existing Python environment matching `requirements.txt` for statistical fits. R software requirements are documented in [docs/INPUTS.md](docs/INPUTS.md). `openpyxl` is optional and used only with `--workbook`.
+The archived manuscript workflows (`run`, `cross-method`, `clinical`, and
+`evidence`) retain the environment in
+[requirements-archived.txt](requirements-archived.txt). The CBC enhancement
+requires Python 3.12.13 and the original server's core numerical versions in
+[requirements.txt](requirements.txt). Run
+`python reproduce.py check-enhancement-env` to verify that environment without
+loading data. R software requirements for the archived workflows are in
+[docs/INPUTS.md](docs/INPUTS.md). `openpyxl` is optional and used only with `--workbook`.
 
 ```bash
 python reproduce.py verify
@@ -108,4 +120,4 @@ Build the upload archive with `python reproduce.py package --output ../normcoupl
 
 ## Citation and license
 
-Use `CITATION.cff` and identify the software version and commit. A software DOI has not been assigned. The supplied GPL-3.0-or-later license is retained; third-party licenses and data-access conditions remain applicable. See `LICENSE` and `THIRD_PARTY.md`.
+Use `CITATION.cff` and identify the software version and commit. The DOI above identifies version 2.2.2, not the 2.3.0 analysis. The supplied GPL-3.0-or-later license is retained; third-party licenses and data-access conditions remain applicable. See `LICENSE` and `THIRD_PARTY.md`.

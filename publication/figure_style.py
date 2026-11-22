@@ -3,15 +3,17 @@
 import matplotlib as mpl
 from matplotlib.colors import LinearSegmentedColormap
 
-INK = '#202428'
-MUTED = '#68727C'
-GRID = '#E7EAED'
-BLUE = '#527DA8'
-TEAL = '#388C83'
-ROSE = '#BD7588'
-VIOLET = '#9576AA'
-GOLD = '#BC984F'
-GRAY = '#76828D'
+INK = '#1E2833'
+MUTED = '#5D6974'
+GRID = '#E6EBEF'
+BLUE = '#245792'
+TEAL = '#007F73'
+ROSE = '#B94F42'
+VIOLET = '#705799'
+GOLD = '#A8711C'
+GRAY = '#78838C'
+ICE = '#EBF3FB'
+MINT = '#E4F4F1'
 
 METHOD_COLORS = {
     'tmm': BLUE, 'marker_matched': TEAL,
@@ -23,9 +25,11 @@ METHOD_COLORS = {
 REFERENCE_COLORS = {'LIBD': BLUE, 'SEAAD': ROSE}
 CLASS_COLORS = [BLUE, TEAL, GOLD, VIOLET, ROSE, '#668F69', '#A78264']
 SEQUENTIAL = LinearSegmentedColormap.from_list(
-    'paper3_sequential', ['#F7FAFB', '#D8E8E8', '#9CCBC6', '#559E9C', '#26516C'])
+    'paper3_absolute', ['#FAF8F2', '#F3DBA3', '#E9A270', '#C96251', '#77364B'])
 DIVERGING = LinearSegmentedColormap.from_list(
-    'paper3_difference', ['#356793', '#A6C7DF', '#FAFAF8', '#E7B8BC', '#A35470'])
+    'paper3_difference', ['#254E89', '#90B7DB', '#FAFAF9', '#E9AE99', '#A13D38'])
+DENSITY = LinearSegmentedColormap.from_list(
+    'paper3_density', ['#EAF1F8', '#C5D4E4', '#829EBC', '#3F6588', '#24394F'])
 
 
 def apply():

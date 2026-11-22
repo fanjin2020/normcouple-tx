@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite the associated manuscript and the exact software release used."
 type: software
 title: "NormCouple-Tx: a framework for diagnosing normalization coupling in transcriptomic inference"
-version: 2.2.2
+version: 2.3.0
 repository-code: "https://github.com/fanjin2020/normcouple-tx"
 authors:
   - family-names: Fan

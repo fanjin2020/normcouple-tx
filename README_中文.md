@@ -1,12 +1,12 @@
 # NormCouple-Tx：转录组归一化耦合诊断框架
 
-本地软件版本：2.2.2。六项证据核查统一由 `bash run_evidence.sh` 启动。[运行与输出说明](docs/EVIDENCE.md)
+本地软件版本：2.3.0。CBC 新增实验及绘图统一由 `bash run_cbc.sh` 启动。[一步命令、输入与结果](docs/CBC_CN.md)。原六项核查入口为 `bash run_evidence.sh`。[原证据核查说明](docs/EVIDENCE.md)
 
 公开仓库：[fanjin2020/normcouple-tx](https://github.com/fanjin2020/normcouple-tx)。
 
 ## 已有数据复用
 
-先激活已有计算环境。统计重跑要求 `requirements.txt` 的固定版本；程序不会自动安装或改动环境。`openpyxl` 只用于可选的Excel导出。
+CBC 增强使用首稿服务器记录的 Python 3.12.13 和 [requirements.txt](requirements.txt) 中的核心计算库版本。先运行 `python reproduce.py check-enhancement-env` 核对实际版本。已归档的实验按原记录使用 [requirements-archived.txt](requirements-archived.txt)。程序不会自动安装或改动环境。`openpyxl` 只用于可选的 Excel 导出。
 
 下面的 `/data/...` 是示例路径，必须换成服务器上的实际目录：
 

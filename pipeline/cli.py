@@ -1,5 +1,6 @@
 """One command-line interface for inputs, computation and manuscript outputs."""
 import argparse
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -12,6 +13,7 @@ def parser():
     sub = p.add_subparsers(dest='action', required=True)
     v = sub.add_parser('verify', help='Verify the upload package, or a completed scientific run')
     v.add_argument('--work', type=Path)
+    sub.add_parser('check-enhancement-env', help='Check the original server environment without running an analysis')
     inp = sub.add_parser('prepare-inputs', help='Reuse verified caches; optionally download pinned sources')
     inp.add_argument('--output', type=Path, required=True)
     inp.add_argument('--cache-root', type=Path, action='append', default=[])
@@ -87,6 +89,18 @@ def parser():
     evidence.add_argument('--allow-downloads',action='store_true',help='Only the three public imaging study files')
     evidence.add_argument('--rscript')
     evidence.add_argument('--r-library',type=Path,action='append',default=[])
+    cbc = sub.add_parser('cbc-upgrade', help='Run the matched-dose anchor benchmark and redraw the article')
+    cbc.add_argument('--pseudobulk', type=Path, required=True, help='Pinned GSE174367 donor-by-class pseudobulk.npz')
+    cbc.add_argument('--imaging-cache', type=Path, required=True, help='Existing pinned LIBD public input directory')
+    cbc.add_argument('--library-types', type=Path, help='Explicit location of the pinned LIBD library_type.csv')
+    cbc.add_argument('--bulk-cache', type=Path, required=True, help='Existing GSE125583_RAW.tar cache directory')
+    cbc.add_argument('--output', type=Path, required=True)
+    cbc.add_argument('--workers', type=int, default=4)
+    cbc.add_argument('--allow-downloads', action='store_true', help='Fetch only pinned public files missing from the caches')
+    cbc.add_argument('--resume', action='store_true')
+    cbc.add_argument('--smoke', action='store_true', help='Acceptance only; two repeats for two donors')
+    cbc.add_argument('--skip-replay', action='store_true', help='Export only new evidence and its figure')
+    cbc.add_argument('--formats', nargs='+', choices=('pdf','png'), default=['pdf'])
     example=sub.add_parser('example',help='Run the small fixed-response software demonstration only')
     example.add_argument('--output',type=Path,required=True)
     for name in ('export', 'figures', 'tables'):
@@ -114,6 +128,13 @@ def main(argv=None):
         if args.work:
             from .run import validate_run
             print('Verified scientific run:', validate_run(args.work))
+    elif args.action in ('check-enhancement-env', 'cbc-upgrade'):
+        verify()
+        from .runtime import check_enhancement_environment
+        print('Verified enhancement environment:', json.dumps(check_enhancement_environment(), sort_keys=True))
+        if args.action == 'cbc-upgrade':
+            from .cbc_anchors import execute
+            execute(args)
     elif args.action == 'prepare-inputs':
         from .inputs import prepare, unpack_inputs
         if args.archive:

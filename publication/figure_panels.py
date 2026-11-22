@@ -41,28 +41,35 @@ def dots(ax,frame,metric,methods,mean='mean',low='low',high='high',factor=1.):
     routes_axes(ax)
 
 def figure1():
-    fig=plt.figure(figsize=(6.85,4.9))
-    gs=fig.add_gridspec(2,2,height_ratios=[1.12,1],hspace=.55,wspace=.48,left=.115,right=.973,top=.936,bottom=.135)
+    fig=plt.figure(figsize=(6.85,4.88))
+    gs=fig.add_gridspec(2,2,height_ratios=[1.36,1],hspace=.62,wspace=.48,left=.108,right=.973,top=.928,bottom=.135)
     a=fig.add_subplot(gs[0,:]);a.set_axis_off(); a.set(xlim=(0,1),ylim=(0,1))
     letter(a,'a')
-    headers=[(.05,'Denominator'),(.285,'Test counts'),(.475,'Marker input'),
-             (.675,'Composition'),(.885,'Disease coefficient')]
-    for x,word in headers:
-        a.text(x,.96,word,ha='left' if x==.05 else 'center',weight='bold',fontsize=8)
-    a.plot([.017,.99],[.874,.874],c=style.INK,lw=.8)
-    for y,title,detail,inc,mrk,beta,c,bg in [
-            (.66,'Shared total','TMM','Included','Can change','Can change',COL['tmm'],'#EEF3F7'),
-            (.32,'Marker total','MRN','Excluded','Unchanged','Unchanged',COL['marker_matched'],'#EDF5F2')]:
-        a.add_patch(plt.Rectangle((.018,y-.14),.972,.28,fc=bg,ec='none',zorder=0))
-        a.plot([.022,.022],[y-.14,y+.14],c=c,lw=2.8,solid_capstyle='butt')
-        a.text(.05,y+.035,title,va='center',weight='bold',fontsize=9)
-        a.text(.05,y-.066,detail,va='center',color=style.MUTED,fontsize=8)
-        for x,value in [(.285,inc),(.475,mrk),(.675,mrk),(.885,beta)]:
-            a.text(x,y,value,ha='center',va='center',fontsize=8.25)
-        for x0,x1 in [(.342,.402),(.55,.603),(.75,.812)]:
-            a.annotate('',(x1,y),(x0,y),arrowprops=dict(arrowstyle='->',color=c,lw=1.1))
-    a.text(.02,.008,'Fixed: marker counts, expression responses, samples and tested family.',
-           va='bottom',fontsize=8,color=style.INK)
+    centers=np.linspace(.085,.912,5)
+    paths=[
+        (.70,.94,'Whole-library TMM',style.BLUE,style.ICE,
+         ['Test\ncounts','Effective\ndenominator','Normalized\nmarkers','Estimated\nfractions','Disease\ncoefficient']),
+        (.25,.48,'Marker-restricted normalization',style.TEAL,style.MINT,
+         ['Test\ncounts','Marker-only\ndenominator','Same marker\ninput','Same\nfractions','Same\ncoefficient'])
+    ]
+    for y,h,title,c,bg,labels in paths:
+        a.text(0,h,title,ha='left',va='center',color=c,weight='bold',fontsize=9)
+        for j,(x,label) in enumerate(zip(centers,labels)):
+            blocked=y<.5 and j==0
+            dark=(y>.5 and j in (0,4)) or (y<.5 and j==1)
+            fc='#F0F2F4' if blocked else c if dark else bg
+            a.add_patch(plt.Rectangle((x-.081,y-.145),.162,.29,fc=fc,ec='none',zorder=1))
+            a.text(x,y,label,ha='center',va='center',fontsize=8.4,weight='bold' if dark else 'normal',
+                   color='white' if dark else style.MUTED if blocked else style.INK)
+            if j<4:
+                mid=(x+centers[j+1])/2
+                if blocked:
+                    a.plot(mid,y,marker='x',mew=1.8,ms=6,color=style.ROSE)
+                else:
+                    a.annotate('',(centers[j+1]-.089,y),(x+.089,y),
+                               arrowprops=dict(arrowstyle='-|>',color=c,lw=1.2,shrinkA=0,shrinkB=0))
+    a.text(.0,-.015,'Held fixed: marker counts, expression responses, samples and tested genes.',
+           va='bottom',fontsize=8.3,color=style.MUTED)
     b=fig.add_subplot(gs[1,0]);letter(b,'b')
     curves=read('analytic_curves.csv')
     signal=curves.signal_over_pseudocount.to_numpy()
@@ -122,8 +129,10 @@ def heat(ax,data,metric,outcome,method,paired=False,limits=None,cmap='viridis',y
     image=ax.imshow(matrix,aspect='auto',cmap=cmap,vmin=limits[0],vmax=limits[1],interpolation='nearest')
     ax.set_xticks(range(9),['0.25','0.5','1.0']*3)
     ax.set_yticks(range(4),SHORT);ax.set_ylabel(ylabel,labelpad=8)
-    for center,label in zip([1,4,7],['5% markers','10% markers','20% markers']):
-        ax.text(center,1.045,label,transform=ax.get_xaxis_transform(),ha='center',va='bottom',fontsize=8)
+    for center,label,tint in zip([1,4,7],['5% markers','10% markers','20% markers'],
+                                ['#EDF3F9','#DEEAF5','#CDDFF0']):
+        ax.text(center,1.049,label,transform=ax.get_xaxis_transform(),ha='center',va='bottom',fontsize=8,
+                weight='bold',bbox=dict(facecolor=tint,edgecolor='none',pad=2.5))
     ax.set_xticks(np.arange(-.5,9,1),minor=True)
     ax.set_yticks(np.arange(-.5,4,1),minor=True)
     ax.grid(which='minor',color='white',linewidth=.7)
@@ -156,9 +165,9 @@ def figure4():
             ax.add_patch(plt.Rectangle((7.53,2.53),.94,.94,fill=False,ec='white',lw=3))
             ax.add_patch(plt.Rectangle((7.53,2.53),.94,.94,fill=False,ec=style.INK,lw=1.1))
         cb=fig.colorbar(im,ax=ax,pad=.025,fraction=.028);cb.ax.tick_params(labelsize=8)
-        cb.set_ticks([lim[0],(lim[0]+lim[1])/2,lim[1]])
+        cb.set_ticks([0,25,50,75,100] if label=='b' else [lim[0],0,lim[1]])
     axs[-1].set_xlabel('Relative-count amplitude',labelpad=7)
-    fig.text(.49,.015,'Open circle: absolute FDR estimate above 5% (panel b).',ha='center',fontsize=8)
+    fig.text(.49,.014,'Circle: absolute FDR above 5%    |    Differences: MRN minus TMM',ha='center',fontsize=8)
     finish(fig, 'Fig4')
 
 def figure7():
@@ -174,26 +183,30 @@ def figure7():
         ax.set_ylim(0,103);ax.set_xticks([.1,.25,.5]);ax.set_xlabel('Direct effect');ax.set_ylabel('Power (%)')
         style.route_title(ax,ref,ref)
     ax=axs[1,0];part=c[c.reference_source.eq('SEAAD')].set_index('method')
-    methods=['tmm','marker_matched','marker_denominator_only'];x=np.arange(3)
-    base=np.zeros(3)
-    for metric,col,lab in [('leakage_variance','#82B4AB','Composition'),('noise_variance','#A4B9D2','Noise')]:
-        val=part.loc[methods,metric].to_numpy()*1000
-        ax.bar(x,val,bottom=base,color=col,width=.52,edgecolor='white',linewidth=.6,label=lab);base+=val
-    cov=part.loc[methods,'twice_covariance'].to_numpy()*1000
-    ax.bar(x,cov,color='#D7A7B3',width=.52,edgecolor='white',linewidth=.6,label='2 × covariance')
-    ax.scatter(x,part.loc[methods,'error_variance']*1000,marker='D',s=22,color='#222222',label='Total',zorder=4)
-    ax.axhline(0,color='#555555',lw=.7);ax.set_xticks(x,['TMM','MRN','Denom.']);ax.set_ylabel('Variance (×0.001)')
     old,new=part.loc['tmm'],part.loc['marker_matched']
     variance_change=new.error_variance-old.error_variance
-    delta_components=sum(new[z]-old[z] for z in ('leakage_variance','noise_variance','twice_covariance'))
-    if not np.isclose(delta_components,variance_change,rtol=1e-7,atol=1e-12):
+    components=['leakage_variance','noise_variance','twice_covariance']
+    changes=np.array([new[z]-old[z] for z in components])*1000
+    if not np.isclose(changes.sum()/1000,variance_change,rtol=1e-7,atol=1e-12):
         raise ValueError('Variance increment does not equal its signed components')
+    start=1000*old.error_variance
+    levels=np.r_[start,start+np.cumsum(changes)]
+    ax.bar(0,start,color=style.BLUE,width=.55)
+    for j,(lo,hi,delta) in enumerate(zip(levels[:-1],levels[1:],changes),1):
+        ax.bar(j,abs(delta),bottom=min(lo,hi),color=style.TEAL if j==1 else style.ROSE,width=.55)
+    ax.bar(4,1000*new.error_variance,color=style.TEAL,width=.55)
+    for j,v in enumerate(levels):
+        ax.plot([j+.275,j+.725],[v,v],color=style.GRAY,lw=.7,ls='--',zorder=3)
+    for j,val in enumerate([start,*changes,levels[-1]]):
+        height=max(levels[max(0,j-1)],levels[min(j,3)])
+        text=f'{val:+.2f}' if 0<j<4 else f'{val:.2f}'
+        ax.annotate(text,(j,height),xytext=(0,4),textcoords='offset points',ha='center',fontsize=7.7)
+    ax.set_xticks(range(5),['TMM','Comp.','Noise','2 × Cov.','MRN'])
+    ax.set_ylabel('Error variance (×0.001)')
+    ax.set_ylim(0,levels.max()*1.34)
     if variance_change>0:
-        ax.set_ylim(top=max(base)*1.60)
-        ax.text(.025,.97,f'{100*(new.leakage_variance-old.leakage_variance)/variance_change:.2f}% of the increase: composition',
+        ax.text(.025,.97,f'{100*changes[0]/(1000*variance_change):.2f}% of increase: composition',
                 transform=ax.transAxes,va='top',fontsize=8,weight='bold')
-        ax.text(.025,.82,f'Total: {old.error_variance:.5f} → {new.error_variance:.5f}',
-                transform=ax.transAxes,va='top',fontsize=8)
     ax=axs[1,1];part=d[d.reference_source.eq('SEAAD')]
     for donor,g in part.groupby('target_donor'):
         q=g.set_index('method').reindex(['tmm','marker_matched'])
@@ -205,7 +218,7 @@ def figure7():
     ax.set_ylabel('Mean coefficient');ax.text(.05,.08,'Truth = 0.25',transform=ax.transAxes,va='bottom',fontsize=8)
     for ax,label in zip(axs.ravel(),'abcd'):letter(ax,label)
     h,l=axs[0,0].get_legend_handles_labels();fig.legend(h,l,ncol=2,loc='lower center',bbox_to_anchor=(.26,.02),frameon=False)
-    h,l=axs[1,0].get_legend_handles_labels();fig.legend(h,l,ncol=2,loc='lower center',bbox_to_anchor=(.75,.005),frameon=False)
+    fig.text(.74,.038,'Signed TMM-to-MRN increments',ha='center',color=style.MUTED,fontsize=8)
     finish(fig, 'Fig7')
 
 def figureS1():

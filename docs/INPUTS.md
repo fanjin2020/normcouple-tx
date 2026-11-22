@@ -75,7 +75,7 @@ GitHub/source ZIP.
 
 ## Software
 
-Python dependencies for computation are pinned in `requirements.txt`: NumPy 2.2.6, pandas 2.2.3, SciPy 1.15.3, h5py 3.13.0 and Matplotlib 3.10.1. Python 3.12 is the tested local interpreter. The study R identity includes R 4.5.3, dtangle 2.0.9, edgeR 4.8.2 and jsonlite 2.0.0. Stage-specific bridges additionally check DESeq2, MEAD and dependencies using preserved protocol specifications.
+The archived manuscript workflows use `requirements-archived.txt`: NumPy 2.2.6, pandas 2.2.3, SciPy 1.15.3, h5py 3.13.0 and Matplotlib 3.10.1. Python 3.12 is the tested local interpreter. The CBC enhancement uses the root `requirements.txt` as documented in [CBC.md](CBC.md). The study R identity includes R 4.5.3, dtangle 2.0.9, edgeR 4.8.2 and jsonlite 2.0.0. Stage-specific bridges additionally check DESeq2, MEAD and dependencies using preserved protocol specifications.
 
 The runner requires an existing R library passed with `--r-library` and an `Rscript` executable (optionally `--rscript PATH`). It does not install packages. Environment mismatches stop before fitting. Select the matching environment explicitly rather than replacing the user's current environment.
 

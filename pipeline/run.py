@@ -147,7 +147,8 @@ def python_environment():
         except (ImportError, OSError, importlib.metadata.PackageNotFoundError) as error:
             problems.append(name + ': ' + str(error))
     if problems:
-        raise ValueError('Select the pinned analysis Python; no packages were installed.\n' + '\n'.join(problems))
+        raise ValueError('Select the archived analysis Python (requirements-archived.txt); '
+                         'no packages were installed.\n' + '\n'.join(problems))
     return expected
 
 

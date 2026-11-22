@@ -1,5 +1,7 @@
-numpy==2.2.6
-pandas==2.2.3
-scipy==1.15.3
-h5py==3.13.0
-matplotlib==3.10.1
+# Core numerical environment recorded by the original server (Python 3.12.13).
+numpy==2.5.3
+pandas==2.3.3
+scipy==1.18.1
+# Server data I/O and figure export.
+h5py==3.16.0
+matplotlib==3.10.6

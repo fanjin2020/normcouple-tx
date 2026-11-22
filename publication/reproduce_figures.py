@@ -15,6 +15,7 @@ import pandas as pd
 from PIL import Image
 from matplotlib.ticker import FormatStrFormatter, MaxNLocator, NullLocator
 from matplotlib.lines import Line2D
+from matplotlib.colors import LogNorm
 
 import figure_panels as core
 import figure_style as style
@@ -101,102 +102,140 @@ def figure5():
 
 
 def figure6():
-    points = fd.subset_points(read('common_support_donor_subsets.csv'))
-    # One large contrast, with the other three settings on the same FDR scale.
-    fig = plt.figure(figsize=(6.85, 5.6))
-    top = fig.add_gridspec(1, 2, left=.115, right=.965, bottom=.565, top=.91,
-                           width_ratios=[1.28, 1], wspace=.29)
-    bottom = fig.add_gridspec(1, 3, left=.115, right=.965, bottom=.175, top=.397, wspace=.35)
-    hero, ledger = fig.add_subplot(top[0]), fig.add_subplot(top[1])
-    route_order = [ROUTES[2], ROUTES[0], ROUTES[1], ROUTES[3]]
-    shape = [('zero', 'Unperturbed', style.GRAY, 'x'), ('matched_', 'Matched', style.TEAL, 's'),
-             ('random_', 'Random', style.VIOLET, 'o'), ('legacy','Predefined', '#96472D', '*'),
-             ('random_mean','Random mean', '#664784','D')]
-    maximum = max(10, int(np.ceil(100 * points.fdp.max() / 10) * 10))
-    for i, (ax, (ref,target)) in enumerate(zip([hero] + [fig.add_subplot(c) for c in bottom], route_order)):
-        g = points[points.reference_source.eq(ref) & points.target_source.eq(target)]
-        for prefix, label, color, marker in shape:
-            mask = g.base_subset.str.startswith(prefix) if prefix.endswith('_') else g.base_subset.eq(prefix)
-            if prefix == 'random_': mask &= ~g.base_subset.eq('random_mean')
-            v = g[mask]
-            ax.plot(v.proportion_rmse, 100*v.fdp, ls='none', marker=marker, mec=color,
-                    mfc='white' if prefix=='random_mean' else color, mew=1.3 if prefix=='random_mean' else .8,
-                    ms={'legacy':9, 'random_mean':7}.get(prefix,4.6), zorder=5, label=label)
+    points=fd.subset_points(read('common_support_donor_subsets.csv'))
+    fig=plt.figure(figsize=(6.85,5.32))
+    comparison=fig.add_gridspec(1,2,left=.207,right=.962,top=.867,bottom=.515,wspace=.28,
+                                width_ratios=[1,1.62])
+    other=fig.add_gridspec(1,3,left=.125,right=.962,top=.353,bottom=.175,wspace=.30)
+    ref,target=ROUTES[2]
+    focus=points[points.reference_source.eq(ref)&points.target_source.eq(target)].set_index('base_subset')
+    random=sorted(k for k in focus.index if k.startswith('random_') and k!='random_mean')
+    keys=['legacy','random_mean',*random]
+    labels=['Predefined','Random mean',*[f'Random {j}' for j in range(1,len(random)+1)]]
+    marks=['*','D',*(['o']*len(random))]
+    colors=[style.TEAL,style.ROSE,*([style.GRAY]*len(random))]
+    fig.text(.204,.963,'LIBD reference · 15 external target donors',weight='bold',fontsize=10.5)
+    full_fdr=float(100*points.fdp.max())
+    for j,(column,ax,tag) in enumerate(zip(['proportion_rmse','fdp'],[fig.add_subplot(c) for c in comparison],'ab')):
+        v=focus.loc[keys,column].to_numpy()*(100 if column=='fdp' else 1)
+        y=np.arange(len(v))[::-1]
+        ax.axhspan(y[0]-.42,y[0]+.42,color=style.MINT,alpha=.82,lw=0)
+        ax.axhspan(y[1]-.42,y[1]+.42,color='#FBEDE8',alpha=.82,lw=0)
+        for idx,(x,yi,marker,color) in enumerate(zip(v,y,marks,colors)):
+            ax.plot(x,yi,marker=marker,ms=9 if idx==0 else 6,c=color,ls='none',
+                    mfc='white' if idx==1 else color,mew=1.35 if idx==1 else .75)
+            if column=='fdp' or idx<2:
+                ax.annotate(f'{x:.2f}%' if column=='fdp' else f'{x:.4f}',(x,yi),
+                            xytext=(7,0),textcoords='offset points',va='center',
+                            fontsize=8.1,weight='bold' if idx<2 else 'normal',color=color)
+        ax.set_ylim(-.55,len(y)-.45)
+        ax.set_yticks(y,labels if j==0 else [])
+        ax.tick_params(axis='y',length=0)
+        ax.set_xlabel('Proportion RMSE' if j==0 else 'Global-null FDR (%)')
+        if j==0:
+            span=np.ptp(v)
+            ax.set_xlim(v.min()-.14*span,v.max()+.55*span)
+            ax.xaxis.set_major_locator(MaxNLocator(3))
+            ax.xaxis.set_major_formatter(FormatStrFormatter('%.4f'))
+        else:
+            ax.set_xlim(-2,max(60,v.max()*1.22))
+            ax.axvline(5,color=style.MUTED,lw=.9,ls=':')
+        core.letter(ax,tag)
+    styles=[('zero','Unperturbed',style.GRAY,'x'),('matched_','Matched',style.BLUE,'s'),
+            ('random_','Random',style.GRAY,'o'),('legacy','Predefined',style.TEAL,'*'),
+            ('random_mean','Random mean',style.ROSE,'D')]
+    for i,(cell,route) in enumerate(zip(other,[ROUTES[0],ROUTES[1],ROUTES[3]])):
+        ax=fig.add_subplot(cell)
+        g=points[points.reference_source.eq(route[0])&points.target_source.eq(route[1])]
+        for prefix,_,color,marker in styles:
+            mask=g.base_subset.str.startswith(prefix) if prefix.endswith('_') else g.base_subset.eq(prefix)
+            if prefix=='random_':
+                mask &= ~g.base_subset.eq('random_mean')
+            v=g[mask]
+            ax.plot(v.proportion_rmse,100*v.fdp,marker=marker,ls='none',color=color,
+                    ms=7 if marker=='*' else 4.7,mfc='white' if marker=='D' else color,mew=.95)
         ax.axhline(5,color=style.MUTED,lw=.8,ls=':')
-        ax.set_ylim(-1, maximum*1.04); ax.yaxis.set_major_locator(MaxNLocator(4))
-        ax.xaxis.set_major_locator(MaxNLocator(3 if i==0 else 2, prune='both'))
-        ax.xaxis.set_major_formatter(FormatStrFormatter('%.4f')); ax.margins(x=.09)
-        if i in (0,1): ax.set_ylabel('Global-null FDR (%)')
-        if i not in (0,1): ax.tick_params(axis='y',labelleft=False)
+        ax.set_ylim(-2,max(60,full_fdr*1.05))
+        ax.yaxis.set_major_locator(MaxNLocator(3))
+        ax.xaxis.set_major_locator(MaxNLocator(2,prune='both'))
+        ax.xaxis.set_major_formatter(FormatStrFormatter('%.4f'))
         ax.set_xlabel('Proportion RMSE')
-        style.route_title(ax,ref,target); core.letter(ax,'abcd'[i])
-        if i==0: focus=g.set_index('base_subset')
-    ledger.axis('off'); ledger.set(xlim=(0,1),ylim=(0,1))
-    for x, word, alignment in [(0,'Subset','left'),(.69,'RMSE','right'),(1,'FDR','right')]:
-        ledger.text(x,.94,word,ha=alignment,va='top',weight='bold',fontsize=8)
-    ledger.plot([0,1],[.80,.80],c=style.INK,lw=.7)
-    for y,key,label,color in [(.68,'legacy','Predefined','#96472D'),(.47,'random_mean','Random mean','#664784')]:
-        row=focus.loc[key]
-        ledger.text(0,y,label,ha='left',va='center',fontsize=8,color=color,weight='bold')
-        ledger.text(.69,y,f'{row.proportion_rmse:.4f}',ha='right',va='center',fontsize=9)
-        ledger.text(1,y,f'{100*row.fdp:.2f}%',ha='right',va='center',fontsize=9)
-    ledger.plot([0,1],[.32,.32],c=style.GRID,lw=.9)
-    random=focus[focus.index.str.match(r'random_\d+$')].sort_index()
-    ledger.text(0,.19,'Individual random-subset FDR',fontsize=8,va='center')
-    ledger.text(0,.035,'  /  '.join(f'{v:.2f}%' for v in 100*random.fdp),fontsize=8,va='center',color='#664784')
-    fig.legend(*hero.get_legend_handles_labels(),ncol=5,loc='lower center',bbox_to_anchor=(.5,.012),
-               columnspacing=1.05,handlelength=1.1)
+        if i==0:
+            ax.set_ylabel('FDR (%)')
+        else:
+            ax.tick_params(axis='y',labelleft=False)
+        style.route_title(ax,*route)
+        core.letter(ax,'cde'[i])
+    handles=[Line2D([],[],label=label,marker=marker,color=color,ls='none',
+                    mfc='white' if marker=='D' else color,ms=6) for _,label,color,marker in styles]
+    fig.legend(handles=handles,ncol=5,loc='lower center',bbox_to_anchor=(.52,.012),
+               columnspacing=1.05,handlelength=1.05)
     finish(fig,'Fig6')
 
 
 def figure8():
     f=read('clinical_coefficient_pairs.csv.gz'); s=read('clinical_stability.csv')
-    fig=plt.figure(figsize=(6.85,5.85))
-    grid=fig.add_gridspec(2,2,left=.115,right=.97,bottom=.12,top=.925,
-                          height_ratios=[1.55,1],wspace=.43,hspace=.59)
+    fig=plt.figure(figsize=(6.85,5.68))
+    grid=fig.add_gridspec(2,2,left=.13,right=.875,bottom=.135,top=.91,
+                          height_ratios=[1.45,1],wspace=.49,hspace=.63)
     axs=[fig.add_subplot(cell) for cell in grid]
-    refs=['LIBD','SEAAD']; counts={}
-    keys={'Neither':('#D6DDE1','.'),
-          'Both':('#68747C','D'),'TMM only':(style.BLUE,'^'),'MRN only':(style.TEAL,'s')}
+    refs=['LIBD','SEAAD']; counts={}; artists=[]
+    both=f[['tmm_beta','mrn_beta']].to_numpy()
+    low,high=both.min(),both.max()
+    pad=.048*(high-low); lim=[low-pad,high+pad]
+    keys={'TMM only':(style.ROSE,'^'),'MRN only':(style.TEAL,'o')}
     for ax,ref in zip(axs[:2],refs):
         g=f[f.reference.eq(ref)]
         cats,counts[ref]=fd.clinical_status(g,select(s,reference=ref,method='marker_matched'))
-        for i,(key,(color,marker)) in enumerate(keys.items()):
+        hexb=ax.hexbin(g.tmm_beta,g.mrn_beta,gridsize=49,extent=[*lim,*lim],mincnt=1,
+                       cmap=style.DENSITY,linewidths=0,zorder=1)
+        artists.append(hexb)
+        ax.plot(lim,lim,c=style.INK,lw=.8,ls='--',alpha=.70,zorder=2)
+        for key,(color,marker) in keys.items():
             v=g[cats==key]
-            ax.scatter(v.tmm_beta,v.mrn_beta,s=[3.2,2.9,4.7,6.8][i],marker=marker,
-                       c=color,edgecolors='none',alpha=[.70,.66,.87,.96][i],rasterized=True,zorder=2+i)
-        low=g[['tmm_beta','mrn_beta']].min().min(); high=g[['tmm_beta','mrn_beta']].max().max()
-        pad=.04*(high-low); lim=[low-pad,high+pad]
-        ax.plot(lim,lim,color=style.MUTED,ls=':',lw=.8,zorder=1)
+            ax.scatter(v.tmm_beta,v.mrn_beta,s=7 if key=='TMM only' else 9,marker=marker,
+                       c=color,edgecolors='none',alpha=.76,rasterized=True,zorder=3)
         ax.set(xlim=lim,ylim=lim,xlabel='TMM disease coefficient',ylabel='MRN disease coefficient',
                title=ref.replace('SEAAD','SEA-AD')+' reference',aspect='equal')
-    ax=axs[2];ax.axis('off');ax.set(xlim=(0,1),ylim=(0,1))
-    for x,label,alignment in [(0,'BH status','left'),(.67,'LIBD','right'),(1,'SEA-AD','right')]:
-        ax.text(x,.965,label,ha=alignment,va='top',weight='bold',fontsize=8)
-    ax.plot([0,1],[.81,.81],c=style.INK,lw=.7)
-    for y,status in zip([.68,.49,.30,.11],fd.CLASSES):
-        color,marker=keys[status]
-        ax.plot(.028,y,marker=marker,c=color,ls='none',ms=6)
-        ax.text(.11,y,status,va='center',fontsize=8)
-        for x,ref in zip([.67,1],refs):
-            ax.text(x,y,f'{counts[ref][status]:,}',ha='right',va='center',fontsize=9,
-                    weight='bold' if 'only' in status else 'normal')
+    maximum=max(a.get_array().max() for a in artists)
+    for a in artists:
+        a.set_norm(LogNorm(vmin=1,vmax=maximum))
+    cax=fig.add_axes([.90,.552,.017,.309])
+    cb=fig.colorbar(artists[0],cax=cax)
+    cb.set_label('Genes per bin (log scale)',labelpad=5)
+    ax=axs[2]
+    y=np.arange(3)[::-1]
+    for j,ref in enumerate(refs):
+        for k,(status,color) in enumerate([('Both',style.GRAY),('TMM only',style.ROSE),('MRN only',style.TEAL)]):
+            x=counts[ref][status]
+            yy=y[k]+(.14 if j==0 else -.14)
+            ax.barh(yy,x,height=.23,fc=color if j==0 else 'white',ec=color,lw=.85,zorder=3)
+            ax.annotate(f'{x:,}',(x,yy),xytext=(4,0),textcoords='offset points',
+                        va='center',color=style.INK,fontsize=7.1)
+    ymax=max(counts[ref][k] for ref in refs for k in ('Both','TMM only','MRN only'))
+    ax.set(xlim=(0,1.26*ymax),ylim=(-.48,2.47),xlabel='Significant genes',title='Discovery membership')
+    ax.set_yticks(y,['Both','TMM only','MRN only'])
+    ax.xaxis.set_major_locator(MaxNLocator(3))
+    ax.tick_params(axis='y',length=0)
     ax=axs[3]
-    for ref,c,ls in [('LIBD',style.INK,'-'),('SEAAD',style.ROSE,'--')]:
+    for ref,c,ls in [('LIBD',style.BLUE,'-'),('SEAAD',style.TEAL,'--')]:
         g=f[f.reference.eq(ref)];ratio=np.sort((g.mrn_se/g.tmm_se).to_numpy())
         ax.plot(ratio,np.arange(1,len(ratio)+1)/len(ratio),color=c,ls=ls,label=ref.replace('SEAAD','SEA-AD'))
-    ax.axvline(1,color=style.MUTED,ls=':',lw=.8);ax.set_xlabel('MRN / TMM standard error');ax.set_ylabel('Fraction of genes')
+    ax.axvline(1,color=style.MUTED,ls=':',lw=.8)
+    ax.set(xlabel='MRN / TMM standard error',ylabel='Fraction of genes',title='Precision')
     ax.set_xscale('log');ax.set_xticks([1,1.2,1.4,1.6,1.8]);ax.xaxis.set_major_formatter(FormatStrFormatter('%.1f'))
     ax.xaxis.set_minor_locator(NullLocator());ax.legend(loc='lower right')
-    for ax,l in zip(axs,'abcd'):core.letter(ax,l)
+    fig.text(.52,.03,'Filled bars: LIBD    |    Outlined bars: SEA-AD',fontsize=8,ha='center',color=style.MUTED)
+    for ax,l in zip(axs,'abcd'):
+        core.letter(ax,l)
     finish(fig,'Fig8')
 
 
 def figure9():
     f=read('clinical_finite.csv')
     measured='clinical_probes.csv' in VIEWS
-    fig,axs=plt.subplots(2,2,figsize=(6.85,6.35))
-    fig.subplots_adjust(left=.135,right=.968,bottom=.185 if measured else .12,top=.925,hspace=.92,wspace=.54)
+    fig,axs=plt.subplots(2,2,figsize=(6.85,6.15))
+    fig.subplots_adjust(left=.14,right=.97,bottom=.155 if measured else .12,top=.90,hspace=.89,wspace=.48)
     dose=read('clinical_probes.csv') if measured else None
     if measured:
         dose=fd.fusiform_doses(f,dose)
@@ -205,7 +244,7 @@ def figure9():
           ('tmm_exclude_both','s','Three invariant arms',':')]
     for j,ref in enumerate(refs):
         for i,metric in enumerate(['threshold_crossing_fraction','coefficient_change_rms'][:1 if measured else 2]):
-            ax=axs[i,j]; sub=f[f.reference.eq(ref)]
+            ax=axs[i+int(measured),j]; sub=f[f.reference.eq(ref)]
             base=sub[sub.method.eq('tmm_exclude_both')].sort_values('log_count_step')
             for other in ('marker_denominator_only','marker_matched'):
                 v=sub[sub.method.eq(other)].sort_values('log_count_step')
@@ -224,49 +263,48 @@ def figure9():
             if i==0:
                 ax.set_ylim(-1,1.25*100*f.threshold_crossing_fraction.max()+1)
                 ax.set_title(ref.replace('SEAAD','SEA-AD')+' reference')
-    fig.legend(*axs[0,0].get_legend_handles_labels(),ncol=3,loc='center',bbox_to_anchor=(.55,.512),
+    fig.legend(*axs[int(measured),0].get_legend_handles_labels(),ncol=3,loc='center',
+               bbox_to_anchor=(.54,.038 if measured else .512),
                handlelength=1.8,columnspacing=1.1)
     if measured:
-        ax=axs[1,0]
+        ax=axs[0,1]
         for k,level in enumerate(('low','middle','high')):
             for i,ref in enumerate(refs):
                 for direction,mk,offset in [('up','^',-.065),('down','v',.065)]:
                     row=select(dose,probe=f'single_{level}_{direction}')
                     value=row[ref+'_singleton_beta_change']*1e5
                     if not np.isfinite(value): raise ValueError('Missing single-gene coefficient change')
-                    ax.scatter(k+(i-.5)*.36+offset,value,marker=mk,facecolors=style.INK if i==0 else 'white',
-                               s=35,edgecolors=style.INK if i==0 else '#994F63',linewidths=1,zorder=3)
+                    ax.scatter(k+(i-.5)*.36+offset,value,marker=mk,facecolors=style.BLUE if i==0 else 'white',
+                               s=38,edgecolors=style.BLUE if i==0 else style.ROSE,linewidths=1,zorder=3)
         ax.axhline(0,color=style.MUTED,lw=.8);ax.set_xlim(-.55,2.55)
-        ax.set_xticks(range(3),['Low','Middle','High']); ax.set_xlabel('Single gene by count share')
+        shares=[select(dose,probe=f'single_{k}_up').AD_count_share_pct for k in ('low','middle','high')]
+        ax.set_xticks(range(3),[f'{s:.3g}%' for s in shares]); ax.set_xlabel('Single gene: share of AD counts')
         ax.set_ylabel(r'Own coefficient change ($10^{-5}$ units)')
         own=dose[dose.probe.str.startswith('single_')][[ref+'_own_BH_crossings' for ref in refs]]
         if own.shape!=(6,2) or not own.isin([0,1]).all().all():
             raise ValueError('Expected six paired singleton interventions under both references')
-        ax.set_title(f'Own BH status changed: {int(own.to_numpy().sum())} of {own.size} fits')
-        h=[Line2D([],[],marker=m,color=style.MUTED,ls='none',ms=5,label=t)
-           for m,t in [('^','Increase'),('v','Decrease')]]
-        ax.legend(handles=h,loc='lower center',ncol=2,bbox_to_anchor=(.5,-.51),columnspacing=.8)
-        ax=axs[1,1]
-        for j,(group,color,mk) in enumerate([('AD',style.INK,'o'),('control',style.ROSE,'s')]):
+        ax.set_title(f'Single-gene probe · {int(own.to_numpy().sum())}/{own.size} own calls crossed')
+        ax.text(.5,-.46,'Triangles: ▲ increase, ▼ decrease\nFilled: LIBD   |   Open: SEA-AD',
+                ha='center',va='top',transform=ax.transAxes,fontsize=7.9,color=style.MUTED)
+        ax=axs[0,0]
+        for j,(group,color,mk) in enumerate([('AD',style.BLUE,'o'),('control',style.ROSE,'s')]):
             for k,direction in enumerate(('down','up')):
                 row=select(dose,probe='test_family_'+direction)
                 q1,med,q3=[row[f'{group}_effective_{v}_pct'] for v in ('q25','median','q75')]
                 ax.errorbar(k+(j-.5)*.18,med,yerr=[[med-q1],[q3-med]],color=color,fmt=mk,ms=5,
                             capsize=3,label=('AD' if j==0 else 'Control') if not k else None)
-                if direction=='up' and j==0:
-                    ax.annotate(f'{med:+.2f}%',(k-.09,q3),xytext=(0,4),textcoords='offset points',
-                                ha='center',fontsize=8,weight='bold')
+                if direction=='up':
+                    ax.annotate(f'{med:+.2f}%',(k+(j-.5)*.18,q3),xytext=(-3 if j==0 else 4,3),
+                                textcoords='offset points',ha='right' if j==0 else 'left',
+                                color=color,fontsize=8,weight='bold')
         ticks=[select(dose,probe='test_family_'+t).AD_input_change_pct for t in ('down','up')]
         ax.set_xticks([0,1],[f'{x:+.2f}%' for x in ticks]);ax.set_xlim(-.55,1.55)
         yl=ax.get_ylim();ax.set_ylim(yl[0],yl[1]+.16*(yl[1]-yl[0]))
         ax.axhline(0,color=style.MUTED,lw=.8);ax.set_xlabel('Full-family count perturbation in AD')
-        ax.set_ylabel('Effective TMM denominator Δ (%)')
+        ax.set_ylabel('Effective denominator Δ (%)')
         share=select(dose,probe='test_family_up').AD_count_share_pct
         ax.set_title(f'Full family: {share:.2f}% of AD counts')
-        ax.legend(loc='lower center',ncol=2,bbox_to_anchor=(.5,-.51),columnspacing=.8)
-        # References and diagnostic groups are different units, even when both use two symbols.
-        ax_l=axs[1,0]
-        ax_l.text(.5,-.57,'LIBD: filled   /   SEA-AD: open',ha='center',transform=ax_l.transAxes,fontsize=8)
+        ax.legend(loc='lower center',ncol=2,bbox_to_anchor=(.5,-.55),columnspacing=.8)
     for ax,l in zip(axs.flat,'abcd'):core.letter(ax,l)
     caption=None if measured else ('Fig. 9 Clinical dose response in computed runs without measured probe evidence. '
         'Panels a,b give BH threshold crossings; c,d give the RMS coefficient change at the same three doses '
